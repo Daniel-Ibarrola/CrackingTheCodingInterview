@@ -8,13 +8,12 @@
 bool hasUniqueChars(const std::string& string)
 {
     // Returns true if the given string characters are all different
-    std::map<char, int> charCount;
+    std::array<bool, 128> found {false};
     for (auto c : string)
     {
-        if (charCount.find(c) == charCount.end())
-            charCount[c] = 1;
-        else
+        if (found[c])
             return false;
+        found[c] = true;
     }
     return true;
 }

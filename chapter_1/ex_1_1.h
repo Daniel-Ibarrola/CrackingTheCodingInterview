@@ -5,7 +5,7 @@
 #ifndef CRACKING_EX_1_1_H
 #define CRACKING_EX_1_1_H
 
-#include <map>
+#include <array>
 #include <string>
 
 bool hasUniqueChars(const std::string& string);
