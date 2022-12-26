@@ -11,6 +11,7 @@ bool isPermutation(const std::string& string, const std::string& other)
     if (string.size() != other.size())
         return false;
 
+    // Assumption: ASCII
     std::array<int, 128> strCount {0};
     std::array<int, 128> otherCount {0};
     for (auto ii {0}; ii < string.size(); ++ii)
