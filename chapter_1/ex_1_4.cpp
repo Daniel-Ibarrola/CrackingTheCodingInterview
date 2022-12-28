@@ -4,62 +4,38 @@
 
 #include "ex_1_4.h"
 
-
-bool operator== (const letterCount& c1, const letterCount& c2)
+std::array<int, 128> getCharCount(const std::string& str)
 {
-    return c1.count == c2.count;
-}
-
-
-bool operator< (const letterCount& c1, const letterCount& c2)
-{
-    return c1.count < c2.count;
-}
-
-
-bool operator> (const letterCount& c1, const letterCount& c2)
-{
-    return c1.count > c2.count;
-}
-
-
-std::priority_queue<letterCount> buildHeap(const std::string& str)
-{
-    std::array<int, 128> count{0};
-    std::priority_queue<letterCount> heap;
-
+    // Count the frequency of each character in the string. Spaces are ignored
+    // and it's case-insensitive
+    std::array<int, 128> frequency {0};
     for (auto ch : str)
-        count[ch]++;
-
-    for (auto ii {0}; ii < count.size(); ++ii)
     {
-        if (count[ii] > 0)
-            heap.push({char(ii), count[ii]});
+        if (ch != ' ')
+            frequency[std::tolower(ch)]++;
     }
+    return frequency;
+}
 
-    return heap;
+
+bool checkMaxOneOdd(const std::array<int ,128>& frequency)
+{
+    // Check that there is one odd number at most
+    bool foundOdd {false};
+    for (auto freq : frequency)
+    {
+        if (freq % 2 == 1)
+        {
+            if (foundOdd) return false;
+            foundOdd = true;
+        }
+    }
+    return true;
 }
 
 bool isPalindromePermutation(const std::string& str)
 {
     // Check if the given string is a permutation of a palindrome
-    std::priority_queue<letterCount> heap {buildHeap(str)};
-    int remaining {static_cast<int>(str.size())};
-
-    while (!heap.empty())
-    {
-        letterCount ltrCnt {heap.top()};
-        heap.pop();
-        if (ltrCnt.count >= 2)
-        {
-            ltrCnt.count -= 2;
-            remaining -= 2;
-            if (ltrCnt.count > 0) heap.push(ltrCnt);
-        }
-        else if (ltrCnt.count < 2 && remaining > 1)
-            return false;
-        else
-            return true;
-    }
-    return true;
+    std::array<int, 128> charCount {getCharCount(str)};
+    return checkMaxOneOdd(charCount);
 }

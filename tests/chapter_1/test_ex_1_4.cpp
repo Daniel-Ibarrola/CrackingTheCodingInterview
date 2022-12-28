@@ -7,15 +7,6 @@
 #include "ex_1_4.h"
 
 
-TEST(TestLetterCountStruct, Comparison)
-{
-    letterCount cnt_1 {'a', 2};
-    letterCount cnt_2 {'b', 4};
-
-    ASSERT_TRUE(cnt_2 > cnt_1);
-}
-
-
 TEST(TestIsPalindromePermutation, SingleChar)
 {
     std::string str {"a"};
@@ -62,4 +53,11 @@ TEST(TestIsPalindromePermutation, NotPalindrome2)
 {
     std::string str {"abc"};
     ASSERT_FALSE(isPalindromePermutation(str));
+}
+
+
+TEST(TestIsPalindoromePermutation, CaseAndSpaceInsensitive)
+{
+    std::string str {"Tact Coa"};
+    ASSERT_TRUE(isPalindromePermutation(str));
 }
