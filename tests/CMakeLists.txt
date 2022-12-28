@@ -7,6 +7,7 @@ add_executable(
         chapter_1/test_ex_1_1.cpp
         chapter_1/test_ex_1_2.cpp
         chapter_1/test_ex_1_3.cpp
+        chapter_1/test_ex_1_4.cpp
 )
 
 target_link_libraries(Google_Tests_run chapter_1)
