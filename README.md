@@ -8,3 +8,4 @@ Solutions of Cracking the Coding Interview book implemented in the C++ programmi
 - [1.2 Is permutation?](chapter_1/ex_1_2.cpp)
 - [1.3 URLify](chapter_1/ex_1_3.cpp)
 - [1.4 Is palindrome permutation?](chapter_1/ex_1_4.cpp)
+- [1.8 Zero Matrix](chapter_1/ex_1_8.cpp)

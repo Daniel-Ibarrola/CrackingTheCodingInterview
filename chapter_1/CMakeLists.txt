@@ -5,6 +5,7 @@ set(HEADER_FILES
         ex_1_2.h
         ex_1_3.h
         ex_1_4.h
+        ex_1_8.h
         )
 
 set(SOURCE_FILES
@@ -12,6 +13,7 @@ set(SOURCE_FILES
         ex_1_2.cpp
         ex_1_3.cpp
         ex_1_4.cpp
+        ex_1_8.cpp
         )
 
 add_library(chapter_1 STATIC ${SOURCE_FILES} ${HEADER_FILES})
