@@ -8,6 +8,7 @@ add_executable(
         chapter_1/test_ex_1_2.cpp
         chapter_1/test_ex_1_3.cpp
         chapter_1/test_ex_1_4.cpp
+        chapter_1/test_ex_1_6.cpp
         chapter_1/test_ex_1_8.cpp
 )
 
