@@ -23,6 +23,6 @@ std::string compress(const std::string& str)
             count = 0;
         }
     }
-    
+
     return compressed.size() < str.size() ? compressed : str;
 }
