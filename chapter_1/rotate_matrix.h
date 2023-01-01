@@ -10,6 +10,8 @@
 using matrix = std::vector<std::vector<int>>;
 
 
-matrix rotateMatrix(const matrix& mat);
+void transposeMatrix(matrix& mat);
+
+void rotateMatrix(matrix& mat);
 
 #endif //CRACKING_ROTATE_MATRIX_H

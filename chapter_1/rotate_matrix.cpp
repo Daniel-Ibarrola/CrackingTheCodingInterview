@@ -5,18 +5,33 @@
 #include "rotate_matrix.h"
 
 
-matrix rotateMatrix(const matrix& mat)
+void transposeMatrix(matrix& mat)
 {
-    // Rotate a squared matrix by 90 degrees
+    // Transpose the given matrix. Inplace operation
     std::size_t size {mat.size()};
-    matrix rotated {
-        mat.size(), std::vector<int>(mat.size(), 0)};
-
     for (auto ii {0}; ii < size; ++ii)
     {
-        for (auto jj {0}; jj < size; ++jj)
-            rotated[jj][ii] = mat[ii][size - 1 - jj];
+        for (auto jj {ii}; jj < size; ++jj)
+            std::swap(mat[ii][jj], mat[jj][ii]);
     }
+}
 
-    return rotated;
+
+void reverseColumns(matrix& mat)
+{
+    // Reverse the columns of the given matrix. Inplace operation
+    std::size_t size {mat.size()};
+    for (auto ii {0}; ii < size; ++ii)
+    {
+        for (auto jj {0}; jj < size / 2; ++jj)
+            std::swap(mat[jj][ii], mat[size - jj - 1][ii]);
+    }
+}
+
+
+void rotateMatrix(matrix& mat)
+{
+    // Rotate a squared matrix by 90 degrees. Inplace operation
+    transposeMatrix(mat);
+    reverseColumns(mat);
 }
