@@ -11,3 +11,7 @@ Solutions of Cracking the Coding Interview book implemented in the C++ programmi
 - [1.6 String compression](chapter_1/ex_1_6.cpp)
 - [1.7 Matrix Rotation](chapter_1/rotate_matrix.cpp)
 - [1.8 Zero Matrix](chapter_1/ex_1_8.cpp)
+
+## Chapter 2 Linked Lists
+
+- [Single Linked List](chapter_2/linked_list.cpp)
