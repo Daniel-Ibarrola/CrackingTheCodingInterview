@@ -39,6 +39,7 @@ public:
 
     LinkedList() = default;
 
+    [[nodiscard]] bool empty() const { return m_size == 0; }
     [[nodiscard]] std::size_t size() const { return m_size; }
 
     void push_back(int value);

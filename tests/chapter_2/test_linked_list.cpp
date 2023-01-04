@@ -18,6 +18,14 @@ TEST(TestLinkedList, TestInsertNode)
 }
 
 
+TEST(TestLinkedList, RemovingFromEmptyList)
+{
+    LinkedList list;
+    list.remove(0);
+    ASSERT_TRUE(list.empty());
+}
+
+
 TEST(TestLinkedList, TestRemoveHeadNode)
 {
     LinkedList list;
