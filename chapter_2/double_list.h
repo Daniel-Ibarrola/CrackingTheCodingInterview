@@ -42,6 +42,10 @@ public:
     [[nodiscard]] int front() const;
     [[nodiscard]] int back() const;
 
+    void pop_back();
+    void pop_front();
+    void remove(int element);
+
 };
 
 
