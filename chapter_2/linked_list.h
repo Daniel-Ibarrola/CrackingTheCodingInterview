@@ -7,6 +7,7 @@
 
 
 #include <cstddef>
+#include <unordered_map>
 
 
 struct Node
@@ -42,10 +43,13 @@ public:
     [[nodiscard]] bool empty() const { return m_size == 0; }
     [[nodiscard]] std::size_t size() const { return m_size; }
 
-    void push_back(int value);
+    void push(int value);
     [[nodiscard]] int getNode(std::size_t index) const;
 
     void remove(int value);
+    void remove_duplicates();
+
+    int front() const;
 
 };
 

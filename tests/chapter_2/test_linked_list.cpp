@@ -9,8 +9,8 @@
 TEST(TestLinkedList, TestInsertNode)
 {
     LinkedList list;
-    list.push_back(3);
-    list.push_back(5);
+    list.push(3);
+    list.push(5);
 
     ASSERT_EQ(list.size(), 2);
     ASSERT_EQ(list.getNode(0), 5);
@@ -29,9 +29,9 @@ TEST(TestLinkedList, RemovingFromEmptyList)
 TEST(TestLinkedList, TestRemoveHeadNode)
 {
     LinkedList list;
-    list.push_back(3);
-    list.push_back(4);
-    list.push_back(1);
+    list.push(3);
+    list.push(4);
+    list.push(1);
 
     list.remove(1);
     ASSERT_EQ(list.size(), 2);
@@ -43,9 +43,9 @@ TEST(TestLinkedList, TestRemoveHeadNode)
 TEST(TestLinkedList, TestRemoveMiddleNode)
 {
     LinkedList list;
-    list.push_back(3);
-    list.push_back(4);
-    list.push_back(1);
+    list.push(3);
+    list.push(4);
+    list.push(1);
 
     list.remove(4);
     ASSERT_EQ(list.size(), 2);

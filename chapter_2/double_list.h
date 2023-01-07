@@ -6,6 +6,7 @@
 #define CRACKING_DOUBLE_LIST_H
 
 #include <cstdlib>
+#include <unordered_map>
 
 
 struct DNode
@@ -45,6 +46,7 @@ public:
     void pop_back();
     void pop_front();
     void remove(int element);
+    void remove_duplicates();
 
 };
 

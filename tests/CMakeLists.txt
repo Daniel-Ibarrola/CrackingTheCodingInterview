@@ -13,6 +13,7 @@ add_executable(
         chapter_1/test_rotate_matrix.cpp
         chapter_2/test_linked_list.cpp
         chapter_2/test_double_list.cpp
+        chapter_2/test_remove_duplicates.cpp
 )
 
 target_link_libraries(Google_Tests_run chapter_1)

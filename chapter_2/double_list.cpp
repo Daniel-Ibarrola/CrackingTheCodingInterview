@@ -122,3 +122,38 @@ void DoublyLinkedList::remove(int element)
     }
 
 }
+
+
+void DoublyLinkedList::remove_duplicates()
+{
+    // Removes all duplicates from the list
+    std::unordered_map<int, bool> found{};
+
+    DNode* current {m_head};
+    while (current != nullptr)
+    {
+        if (found.count(current->value))
+        {
+            if (current == m_tail)
+            {
+                pop_back();
+                return;
+            }
+            else
+            {
+                DNode* temp {current};
+                current = temp->next;
+                temp->prev->next = temp->next;
+                temp->next->prev = temp->prev;
+
+                delete temp;
+                --m_size;
+            }
+        }
+        else
+        {
+            found[current->value] = true;
+            current = current->next;
+        }
+    }
+}

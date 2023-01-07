@@ -5,7 +5,7 @@
 #include "linked_list.h"
 
 
-void LinkedList::push_back(int value)
+void LinkedList::push(int value)
 {
     // Add a new node with the given value to the list
     if (m_head == nullptr)
@@ -70,4 +70,39 @@ void LinkedList::remove(int value)
         prev = curr;
         curr = curr->next;
     }
+}
+
+
+void LinkedList::remove_duplicates()
+{
+    // Remove all duplicate elements from the list
+    std::unordered_map<int, bool> found{};
+
+    Node* current {m_head};
+    Node* prev {current};
+
+    while (current != nullptr)
+    {
+        if (found.count(current->value))
+        {
+            Node* temp {current};
+            prev->next = temp->next;
+            current = temp->next;
+            delete temp;
+            --m_size;
+        }
+        else
+        {
+            found[current->value] = true;
+            prev = current;
+            current = current->next;
+        }
+    }
+}
+
+
+int LinkedList::front() const
+{
+    // Get the top element
+    return m_head->value;
 }
