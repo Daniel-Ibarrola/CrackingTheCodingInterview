@@ -34,6 +34,19 @@ public:
 
     DoublyLinkedList() = default;
 
+    ~DoublyLinkedList()
+    {
+        DNode* current {m_head};
+        while (current != nullptr)
+        {
+            if (current == m_tail)
+                break;
+            DNode* next {current->next};
+            delete current;
+            current = next;
+        }
+    }
+
     [[nodiscard]] bool empty() const { return m_size == 0; }
     [[nodiscard]] std::size_t size() const { return m_size; }
 

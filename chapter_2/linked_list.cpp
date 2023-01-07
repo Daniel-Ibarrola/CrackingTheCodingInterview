@@ -106,3 +106,19 @@ int LinkedList::front() const
     // Get the top element
     return m_head->value;
 }
+
+
+int LinkedList::kToLast(std::size_t pos) const
+{
+    // Returns the kth to last element
+    assert(pos > 0 && pos < m_size);
+
+    std::size_t remaining {m_size - 1};
+    Node* current {m_head};
+    while (remaining > pos)
+    {
+        current = current->next;
+        --remaining;
+    }
+    return current->value;
+}

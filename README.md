@@ -14,4 +14,7 @@ Solutions of Cracking the Coding Interview book implemented in the C++ programmi
 
 ## Chapter 2 Linked Lists
 
-- [Single Linked List](chapter_2/linked_list.cpp)
+- [Single Linked List](chapter_2/linked_list.h)
+- [Doubly Linked List](chapter_2/double_list.h)
+- [Remove duplicates](chapter_2/linked_list.cpp)
+- [Retrieve Kth to last element](chapter_2/linked_list.cpp)

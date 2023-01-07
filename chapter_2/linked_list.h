@@ -6,7 +6,9 @@
 #define CRACKING_LINKED_LIST_H
 
 
+#include <cassert>
 #include <cstddef>
+#include <initializer_list>
 #include <unordered_set>
 
 
@@ -40,6 +42,25 @@ public:
 
     LinkedList() = default;
 
+    LinkedList(std::initializer_list<int> list)
+    {
+        for (auto element : list)
+        {
+            push(element);
+        }
+    }
+
+    ~LinkedList()
+    {
+        Node* current {m_head};
+        while (current != nullptr)
+        {
+            Node* next {current->next};
+            delete current;
+            current = next;
+        }
+    }
+
     [[nodiscard]] bool empty() const { return m_size == 0; }
     [[nodiscard]] std::size_t size() const { return m_size; }
 
@@ -49,7 +70,8 @@ public:
     void remove(int value);
     void remove_duplicates();
 
-    int front() const;
+    [[nodiscard]] int front() const;
+    [[nodiscard]] int kToLast(std::size_t pos) const;
 
 };
 

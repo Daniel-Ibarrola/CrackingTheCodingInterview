@@ -14,6 +14,7 @@ add_executable(
         chapter_2/test_linked_list.cpp
         chapter_2/test_double_list.cpp
         chapter_2/test_remove_duplicates.cpp
+        chapter_2/test_kth_to_last.cpp
 )
 
 target_link_libraries(Google_Tests_run chapter_1)
