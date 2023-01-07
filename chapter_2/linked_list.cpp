@@ -76,7 +76,7 @@ void LinkedList::remove(int value)
 void LinkedList::remove_duplicates()
 {
     // Remove all duplicate elements from the list
-    std::unordered_map<int, bool> found{};
+    std::unordered_set<int> found{};
 
     Node* current {m_head};
     Node* prev {current};
@@ -93,7 +93,7 @@ void LinkedList::remove_duplicates()
         }
         else
         {
-            found[current->value] = true;
+            found.insert(current->value);
             prev = current;
             current = current->next;
         }

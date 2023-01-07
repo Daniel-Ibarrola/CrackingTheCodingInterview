@@ -6,7 +6,7 @@
 #define CRACKING_DOUBLE_LIST_H
 
 #include <cstdlib>
-#include <unordered_map>
+#include <unordered_set>
 
 
 struct DNode

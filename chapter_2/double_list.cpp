@@ -127,7 +127,7 @@ void DoublyLinkedList::remove(int element)
 void DoublyLinkedList::remove_duplicates()
 {
     // Removes all duplicates from the list
-    std::unordered_map<int, bool> found{};
+    std::unordered_set<int> found{};
 
     DNode* current {m_head};
     while (current != nullptr)
@@ -152,7 +152,7 @@ void DoublyLinkedList::remove_duplicates()
         }
         else
         {
-            found[current->value] = true;
+            found.insert(current->value);
             current = current->next;
         }
     }
