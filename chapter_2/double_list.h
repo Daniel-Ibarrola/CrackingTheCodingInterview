@@ -6,6 +6,7 @@
 #define CRACKING_DOUBLE_LIST_H
 
 #include <cstdlib>
+#include <initializer_list>
 #include <unordered_set>
 
 
@@ -33,6 +34,12 @@ private:
 public:
 
     DoublyLinkedList() = default;
+
+    DoublyLinkedList(std::initializer_list<int> list)
+    {
+        for (auto element : list)
+            push_back(element);
+    }
 
     ~DoublyLinkedList()
     {

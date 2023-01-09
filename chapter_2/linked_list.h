@@ -44,10 +44,9 @@ public:
 
     LinkedList(std::initializer_list<int> list)
     {
-        for (auto element : list)
-        {
-            push(element);
-        }
+        // Initializer list preserves order
+        for (auto it {rbegin(list)}; it != rend(list); ++it)
+            push(*it);
     }
 
     ~LinkedList()

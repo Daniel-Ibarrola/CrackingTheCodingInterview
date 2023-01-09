@@ -8,6 +8,6 @@
 
 TEST(TestLinkedList, KthToLast)
 {
-    LinkedList list {2, 3, 7, 9, 5, 8};
+    LinkedList list {8, 5, 9, 7, 3, 2};
     ASSERT_EQ(list.kToLast(3), 9);
 }

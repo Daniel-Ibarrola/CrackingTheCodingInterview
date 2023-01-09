@@ -36,10 +36,7 @@ TEST(TestDoublyLinkedList, TestPushFront)
 
 TEST(TestDoublyLinkedList, PopFront)
 {
-    DoublyLinkedList list;
-    list.push_back(4);
-    list.push_back(5);
-    list.push_back(6);
+    DoublyLinkedList list {4, 5, 6};
 
     ASSERT_EQ(list.front(), 4);
     list.pop_front();
@@ -56,10 +53,7 @@ TEST(TestDoublyLinkedList, PopFront)
 
 TEST(TestDoublyLinkedList, PopBack)
 {
-    DoublyLinkedList list;
-    list.push_back(4);
-    list.push_back(5);
-    list.push_back(6);
+    DoublyLinkedList list {4, 5, 6};
 
     ASSERT_EQ(list.back(), 6);
     list.pop_back();
@@ -76,13 +70,18 @@ TEST(TestDoublyLinkedList, PopBack)
 
 TEST(TestDoublyLinkedList, RemoveMiddleElement)
 {
-    DoublyLinkedList list;
-    list.push_back(4);
-    list.push_back(5);
-    list.push_back(6);
+    DoublyLinkedList list {4, 5, 6};
 
     list.remove(5);
     ASSERT_EQ(list.size(), 2);
     ASSERT_EQ(list.front(), 4);
     ASSERT_EQ(list.back(), 6);
+}
+
+
+TEST(TestDoublyLinkedList, InitializerListPreservesOrder)
+{
+    DoublyLinkedList list {1, 2, 3};
+    ASSERT_EQ(list.front(), 1);
+    ASSERT_EQ(list.back(), 3);
 }
