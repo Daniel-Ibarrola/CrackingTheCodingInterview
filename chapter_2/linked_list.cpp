@@ -122,3 +122,37 @@ int LinkedList::kToLast(std::size_t pos) const
     }
     return current->value;
 }
+
+
+void LinkedList::partition(int partitionNum)
+{
+    // Partition the list so all numbers smaller than the partition number are
+    // found before all elements greater or equal to the partition number
+    Node* first {m_head};
+    Node* second {m_head};
+
+    while (first != nullptr || second != nullptr)
+    {
+        if (first->value >= partitionNum)
+        {
+            // Advance second pointer
+            second = first->next;
+            while (second != nullptr)
+            {
+                if (second->value < partitionNum)
+                {
+                    // Exchange values
+                    int temp {first->value};
+                    first->value = second->value;
+                    second->value = temp;
+
+                    second = second->next;
+                    break;
+                }
+                second = second->next;
+            }
+        }
+        first = first->next;
+    }
+
+}

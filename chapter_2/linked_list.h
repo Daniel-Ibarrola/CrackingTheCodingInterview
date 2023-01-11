@@ -72,6 +72,7 @@ public:
     [[nodiscard]] int front() const;
     [[nodiscard]] int kToLast(std::size_t pos) const;
 
+    void partition(int partitionNum);
 };
 
 #endif //CRACKING_LINKED_LIST_H
