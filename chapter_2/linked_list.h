@@ -10,6 +10,7 @@
 #include <cstddef>
 #include <initializer_list>
 #include <unordered_set>
+#include <iostream>
 
 
 struct Node
@@ -73,6 +74,12 @@ public:
     [[nodiscard]] int kToLast(std::size_t pos) const;
 
     void partition(int partitionNum);
+
+    friend LinkedList numberSum(const LinkedList& list1, const LinkedList& list2);
+
+    friend bool operator== (const LinkedList& list1, const LinkedList& list2);
+    friend bool operator!= (const LinkedList& list1, const LinkedList& list2);
+    friend std::ostream& operator<< (std::ostream& out, const LinkedList& list);
 };
 
 #endif //CRACKING_LINKED_LIST_H

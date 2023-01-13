@@ -55,3 +55,21 @@ TEST(TestLinkedList, InitializerListPreservesOrder)
     ASSERT_EQ(list.getNode(1), 4);
     ASSERT_EQ(list.getNode(2), 5);
 }
+
+
+TEST(TestLinkedList, ListEquality)
+{
+    LinkedList list1 {1, 2, 3};
+    LinkedList equal {1, 2, 3};
+    LinkedList notEqual {1, 4, 3};
+
+    ASSERT_EQ(list1, equal);
+    ASSERT_NE(list1, notEqual);
+}
+
+
+TEST(TestLinkedList, PrintList)
+{
+    LinkedList list {1, 2, 3};
+    std::cout << list << '\n';
+}
