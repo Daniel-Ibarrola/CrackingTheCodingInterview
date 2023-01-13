@@ -104,6 +104,8 @@ void LinkedList::remove_duplicates()
 int LinkedList::front() const
 {
     // Get the top element
+    if (empty())
+        throw EmptyListException("Cannot get element from empty list");
     return m_head->value;
 }
 
@@ -155,73 +157,6 @@ void LinkedList::partition(int partitionNum)
         first = first->next;
     }
 
-}
-
-
-LinkedList numberSum(const LinkedList &list1, const LinkedList &list2)
-{
-    // Given two numbers represented by a linked list, computes their sum.
-    LinkedList result;
-
-    if (list1.empty()|| list2.empty())
-        return result;
-
-    // ptr1 will always point to the larger list
-    Node* ptr1;
-    Node* ptr2;
-    if (list1.size() >= list2.size())
-    {
-        ptr1 = list1.m_head;
-        ptr2 = list2.m_head;
-    }
-    else
-    {
-        ptr1 = list2.m_head;
-        ptr2 = list1.m_head;
-    }
-
-    int plusOne {0};
-    while (ptr2 != nullptr)
-    {
-        // Digit sum max value is 19
-        int digitSum {plusOne + ptr1->value + ptr2->value};
-
-        if (digitSum < 10)
-        {
-            result.push(digitSum);
-            plusOne = 0;
-        }
-        else
-        {
-            result.push(digitSum % 10);
-            plusOne = 1;
-        }
-        ptr1 = ptr1->next;
-        ptr2 = ptr2->next;
-    }
-
-    // If both list were the same size and there is still a plus one
-    // we add it to the result
-    if (ptr1 == nullptr && plusOne)
-        result.push(1);
-
-    // If one of the list was larger than the other the sum
-    // may continue if there is still a plusOne
-    while (ptr1 != nullptr)
-    {
-        int sum {ptr1->value + 1};
-        if (sum < 10)
-        {
-            result.push(sum);
-            break;
-        }
-        else
-            result.push(sum % 10);
-
-        ptr1 = ptr1->next;
-    }
-
-    return result;
 }
 
 

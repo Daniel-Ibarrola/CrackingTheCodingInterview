@@ -5,12 +5,14 @@
 #ifndef CRACKING_LINKED_LIST_H
 #define CRACKING_LINKED_LIST_H
 
-
 #include <cassert>
 #include <cstddef>
+#include <exception>
 #include <initializer_list>
-#include <unordered_set>
 #include <iostream>
+#include <unordered_set>
+#include <string>
+#include <utility>
 
 
 struct Node
@@ -30,11 +32,28 @@ struct Node
 };
 
 
+class EmptyListException : public std::exception
+{
+private:
+    std::string m_error{};
+
+public:
+
+    explicit EmptyListException(std::string  error)
+        : m_error{std::move(error)}
+    {
+
+    }
+
+    [[nodiscard]] const char* what() const noexcept override { return m_error.c_str(); }
+};
+
+
 class LinkedList
 {
     // Singly linked list
-private:
-    std::size_t m_size {};
+protected:
+    std::size_t m_size {0};
     Node* m_head {nullptr};
 
     void removeNode(Node* prev, Node* node);
@@ -74,8 +93,6 @@ public:
     [[nodiscard]] int kToLast(std::size_t pos) const;
 
     void partition(int partitionNum);
-
-    friend LinkedList numberSum(const LinkedList& list1, const LinkedList& list2);
 
     friend bool operator== (const LinkedList& list1, const LinkedList& list2);
     friend bool operator!= (const LinkedList& list1, const LinkedList& list2);

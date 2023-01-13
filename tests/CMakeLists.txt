@@ -17,6 +17,7 @@ add_executable(
         chapter_2/test_kth_to_last.cpp
         chapter_2/test_partition.cpp
         chapter_2/test_linked_list_sum.cpp
+        chapter_2/test_list_with_tail.cpp
 )
 
 target_link_libraries(Google_Tests_run chapter_1)
