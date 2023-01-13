@@ -96,16 +96,20 @@ TailedLinkedList numberSum(const TailedLinkedList &list1, const TailedLinkedList
     // If both list were the same size and there is still a plus one
     // we add it to the result
     if (ptr1 == nullptr && plusOne)
+    {
         result.push_back(1);
+        plusOne = 0;
+    }
 
     // If one of the list was larger than the other the sum
     // may continue if there is still a plusOne
     while (ptr1 != nullptr)
     {
-        int sum {ptr1->value + 1};
+        int sum {ptr1->value + plusOne};
         if (sum < 10)
         {
             result.push_back(sum);
+            plusOne = 0;
             break;
         }
         else
@@ -113,6 +117,9 @@ TailedLinkedList numberSum(const TailedLinkedList &list1, const TailedLinkedList
 
         ptr1 = ptr1->next;
     }
+
+    if (plusOne)
+        result.push_back(1);
 
     return result;
 }

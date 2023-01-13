@@ -32,6 +32,7 @@ TEST(TestLinkedListSum, LongerList)
     TailedLinkedList list1 {9, 9, 9};
     TailedLinkedList list2 {9};
 
-    TailedLinkedList expected {8, 0, 0, 9};
-    ASSERT_EQ(numberSum(list1, list2), expected);
+    TailedLinkedList expected {8, 0, 0, 1};
+    TailedLinkedList sum {numberSum(list1, list2)};
+    ASSERT_EQ(sum, expected);
 }
