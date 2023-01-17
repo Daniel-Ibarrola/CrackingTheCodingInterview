@@ -18,6 +18,7 @@ add_executable(
         chapter_2/test_partition.cpp
         chapter_2/test_linked_list_sum.cpp
         chapter_2/test_list_with_tail.cpp
+        chapter_2/test_is_palindrome.cpp
 )
 
 target_link_libraries(Google_Tests_run chapter_1)

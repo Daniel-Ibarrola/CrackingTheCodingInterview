@@ -203,3 +203,24 @@ std::ostream &operator<<(std::ostream &out, const LinkedList &list)
     }
     return out;
 }
+
+
+bool LinkedList::isPalindrome()
+{
+    // Returns true if the list is a palindrome
+    Node* ptr1 {m_head};
+    Node* ptr2 {ptr1};
+
+    for (auto ii {0}; ii < size() / 2; ++ii)
+    {
+        for (auto jj {ii + 1}; jj < size() - ii; ++jj)
+            ptr2 = ptr2->next;
+
+        if (ptr1->value != ptr2->value)
+            return false;
+        ptr1 = ptr1->next;
+        ptr2 = ptr1;
+    }
+
+    return true;
+}

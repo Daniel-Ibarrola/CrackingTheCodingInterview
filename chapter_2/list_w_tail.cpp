@@ -79,16 +79,11 @@ TailedLinkedList numberSum(const TailedLinkedList &list1, const TailedLinkedList
         // Digit sum max value is 19
         int digitSum {plusOne + ptr1->value + ptr2->value};
 
+        result.push_back(digitSum % 10);
         if (digitSum < 10)
-        {
-            result.push_back(digitSum);
             plusOne = 0;
-        }
         else
-        {
-            result.push_back(digitSum % 10);
             plusOne = 1;
-        }
         ptr1 = ptr1->next;
         ptr2 = ptr2->next;
     }
@@ -106,14 +101,12 @@ TailedLinkedList numberSum(const TailedLinkedList &list1, const TailedLinkedList
     while (ptr1 != nullptr)
     {
         int sum {ptr1->value + plusOne};
+        result.push_back(sum % 10);
         if (sum < 10)
         {
-            result.push_back(sum);
             plusOne = 0;
             break;
         }
-        else
-            result.push_back(sum % 10);
 
         ptr1 = ptr1->next;
     }

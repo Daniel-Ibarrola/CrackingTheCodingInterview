@@ -94,6 +94,8 @@ public:
 
     void partition(int partitionNum);
 
+    bool isPalindrome();
+
     friend bool operator== (const LinkedList& list1, const LinkedList& list2);
     friend bool operator!= (const LinkedList& list1, const LinkedList& list2);
     friend std::ostream& operator<< (std::ostream& out, const LinkedList& list);
