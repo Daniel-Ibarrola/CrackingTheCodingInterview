@@ -208,18 +208,22 @@ std::ostream &operator<<(std::ostream &out, const LinkedList &list)
 bool LinkedList::isPalindrome()
 {
     // Returns true if the list is a palindrome
-    Node* ptr1 {m_head};
-    Node* ptr2 {ptr1};
+    std::stack<int> stack;
+    Node* current {m_head};
 
-    for (auto ii {0}; ii < size() / 2; ++ii)
+    while (current != nullptr)
     {
-        for (auto jj {ii + 1}; jj < size() - ii; ++jj)
-            ptr2 = ptr2->next;
+        stack.push(current->value);
+        current = current->next;
+    }
 
-        if (ptr1->value != ptr2->value)
+    current = m_head;
+    while (current != nullptr)
+    {
+        if (stack.top() != current->value)
             return false;
-        ptr1 = ptr1->next;
-        ptr2 = ptr1;
+        stack.pop();
+        current = current->next;
     }
 
     return true;
