@@ -44,61 +44,71 @@ Node* getNode(std::size_t index, Node* list)
 }
 
 
+struct Result
+{
+    // Struct to store the result from getTailAndSize
+    std::size_t size;
+    Node* tail;
+
+    Result(std::size_t size_, Node* tail_)
+        : size {size_}, tail {tail_}
+    {
+
+    }
+};
+
+
+Result getTailAndSize(Node* list)
+{
+    // Returns the tail node and the size of the given list
+    std::size_t size {0};
+    while (list->next != nullptr)
+    {
+        list = list->next;
+        ++size;
+    }
+    ++size;
+    return Result {size, list};
+}
+
+
+
 Node* listIntersection(Node* head1, Node* head2)
 {
     // If two list intersects returns the node where the intersection
     // occurs. Otherwise, it returns a null pointer
+    if (head1 == nullptr || head2 == nullptr)
+        return nullptr;
+
     Node* list1 {head1};
     Node* list2 {head2};
 
-    std::size_t size1 {0};
-    std::size_t size2 {0};
-
-    while (list1->next != nullptr)
-    {
-        list1 = list1->next;
-        ++size1;
-    }
-    ++size1;
-
-    while (list2->next != nullptr)
-    {
-        list2 = list2->next;
-        ++size2;
-    }
-    ++size2;
+    Result result1 {getTailAndSize(list1)};
+    Result result2 {getTailAndSize(list2)};
 
     // Intersecting lists always have the same last node
-    if (list2 != list1)
+    if (result1.tail != result2.tail)
         return nullptr;
 
     // list1 will point to the larger list
-    if (size1 >= size2)
-    {
-        list1 = head1;
-        list2 = head2;
-    }
-    else
+    if (result1.size < result2.size)
     {
         list1 = head2;
         list2 = head1;
-        std::swap(size1, size2);
+        std::swap(result1, result2);
     }
 
     // Advance larger list pointer so there are the same remaining
     // number of nodes
-    for (auto ii {0}; ii < size1 - size2; ++ii)
+    for (auto ii {0}; ii < result1.size - result2.size; ++ii)
         list1 = list1->next;
 
     // Find first equal node. This is where the intersection begins
-    while (list1 != nullptr && list2 != nullptr)
+    while (list1 != list2)
     {
-        if (list1 == list2)
-            return list1;
-
         list1 = list1->next;
         list2 = list2->next;
     }
 
-    return nullptr;
+    return list1;
 }
