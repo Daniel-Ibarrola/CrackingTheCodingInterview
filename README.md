@@ -20,3 +20,4 @@ Solutions of Cracking the Coding Interview book implemented in the C++ programmi
 - [2.2 Retrieve Kth to last element](chapter_2/linked_list.cpp)
 - [2.4 Partition List](chapter_2/linked_list.cpp)
 - [2.5 Sum Lists](chapter_2/list_w_tail.cpp)
+- [2.6 Palindrome](chapter_2/linked_list.cpp)
