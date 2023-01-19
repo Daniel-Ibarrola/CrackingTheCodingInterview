@@ -211,13 +211,19 @@ bool LinkedList::isPalindrome()
     std::stack<int> stack;
     Node* current {m_head};
 
-    while (current != nullptr)
+    // Note that we only need to compare the first half of the list
+    // to the second half
+
+    for(auto ii {0}; ii < size() / 2; ++ii)
     {
         stack.push(current->value);
         current = current->next;
     }
 
-    current = m_head;
+    // If the list is odd skip the middle element
+    if (size() % 2 != 0)
+        current = current->next;
+
     while (current != nullptr)
     {
         if (stack.top() != current->value)
