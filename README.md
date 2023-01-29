@@ -22,4 +22,4 @@ Solutions of Cracking the Coding Interview book implemented in the C++ programmi
 - [2.5 Sum Lists](chapter_2/list_w_tail.cpp)
 - [2.6 Palindrome](chapter_2/linked_list.cpp)
 - [2.7 Linked List Intersection](chapter_2/list_intersection.cpp)
-- 
+- [2.8 Loop detection](chapter_2/loop_detection.cpp)

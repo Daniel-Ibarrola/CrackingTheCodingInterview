@@ -6,6 +6,7 @@ set(HEADER_FILES
         list_w_tail.h
         list_intersection.h
         node.h
+        loop_detection.h
         )
 
 set(SOURCE_FILES
@@ -14,6 +15,7 @@ set(SOURCE_FILES
         list_w_tail.cpp
         list_intersection.cpp
         node.cpp
+        loop_detection.cpp
         )
 
 add_library(chapter_2 STATIC ${SOURCE_FILES} ${HEADER_FILES})
