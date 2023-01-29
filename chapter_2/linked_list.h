@@ -15,22 +15,7 @@
 #include <stack>
 #include <utility>
 
-
-struct Node
-{
-    Node* next;
-    int value;
-
-    explicit Node(int val) : next {nullptr}, value {val}
-    {
-
-    }
-
-    Node (Node* nxt, int val) : next {nxt}, value {val}
-    {
-
-    }
-};
+#include "node.h"
 
 
 class EmptyListException : public std::exception

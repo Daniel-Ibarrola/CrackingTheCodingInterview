@@ -3,7 +3,7 @@
 //
 
 #include "gtest/gtest.h"
-#include "linked_list.h"
+#include "node.h"
 #include "list_intersection.h"
 
 

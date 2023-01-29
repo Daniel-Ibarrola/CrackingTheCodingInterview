@@ -20,6 +20,7 @@ add_executable(
         chapter_2/test_list_with_tail.cpp
         chapter_2/test_is_palindrome.cpp
         chapter_2/test_list_intersection.cpp
+        chapter_2/test_loop_detection.cpp
 )
 
 target_link_libraries(Google_Tests_run chapter_1)

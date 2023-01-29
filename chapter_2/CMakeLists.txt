@@ -5,6 +5,7 @@ set(HEADER_FILES
         double_list.h
         list_w_tail.h
         list_intersection.h
+        node.h
         )
 
 set(SOURCE_FILES
@@ -12,6 +13,7 @@ set(SOURCE_FILES
         double_list.cpp
         list_w_tail.cpp
         list_intersection.cpp
+        node.cpp
         )
 
 add_library(chapter_2 STATIC ${SOURCE_FILES} ${HEADER_FILES})
