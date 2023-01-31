@@ -9,5 +9,8 @@ add_subdirectory(chapter_1)
 include_directories(chapter_2)
 add_subdirectory(chapter_2)
 
+include_directories(chapter_3)
+add_subdirectory(chapter_3)
+
 add_library(Cracking library.cpp)
 add_subdirectory(tests)
