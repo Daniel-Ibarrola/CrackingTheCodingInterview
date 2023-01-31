@@ -9,23 +9,26 @@
 TEST(TestQueue, InsertAndRemoveFromQueue)
 {
     Queue<double> queue;
-    // Create the following queue {4, 3, 2 ,1}
-    queue.push_front(3);
-    queue.push_front(4);
-    queue.push_back(2);
-    queue.push_back(1);
+    // Create the following queue {1, 2, 3 ,4}
+    queue.push(1);
+    queue.push(2);
+    queue.push(3);
+    queue.push(4);
 
     ASSERT_FALSE(queue.empty());
+    ASSERT_EQ(queue.back(), 4);
 
-    ASSERT_EQ(queue.front(), 4);
-    ASSERT_EQ(queue.back(), 1);
-    queue.pop_front();
-    queue.pop_back();
+    ASSERT_EQ(queue.front(), 1);
+    queue.pop();
+
+    ASSERT_EQ(queue.front(), 2);
+    queue.pop();
 
     ASSERT_EQ(queue.front(), 3);
-    ASSERT_EQ(queue.back(), 2);
-    queue.pop_front();
-    queue.pop_back();
+    queue.pop();
+
+    ASSERT_EQ(queue.front(), 4);
+    queue.pop();
 
     ASSERT_TRUE(queue.empty());
 }
