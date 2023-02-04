@@ -3,6 +3,7 @@ project(chapter_3)
 set(HEADER_FILES
         stack.h
         queue.h
+        stack_min.h
         )
 
 set(SOURCE_FILES
