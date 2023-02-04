@@ -23,3 +23,10 @@ Solutions of Cracking the Coding Interview book implemented in the C++ programmi
 - [2.6 Palindrome](chapter_2/linked_list.cpp)
 - [2.7 Linked List Intersection](chapter_2/list_intersection.cpp)
 - [2.8 Loop detection](chapter_2/loop_detection.cpp)
+
+
+## Chapter 3 Stacks and Queues
+
+- [Stack](chapter_3/stack.h)
+- [Queue](chapter_3/queue.h)
+- [Stack with min](chapter_3/stack_min.h)
