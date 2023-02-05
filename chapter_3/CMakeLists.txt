@@ -4,6 +4,7 @@ set(HEADER_FILES
         stack.h
         queue.h
         stack_min.h
+        set_of_stacks.h
         )
 
 set(SOURCE_FILES
