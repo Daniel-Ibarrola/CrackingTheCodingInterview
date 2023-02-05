@@ -17,6 +17,7 @@ private:
     std::vector<std::stack<T>> m_stacks {1, std::stack<T>{}};
     std::size_t m_capacity;
     std::size_t m_current {0};
+    std::size_t m_first {0}; // Keep track of the first non-empty stack
 
 public:
 
@@ -43,8 +44,33 @@ public:
         // Pop an element from the last stack that was created
         assert(!empty());
         m_stacks[m_current].pop();
-        if (m_stacks[m_current].size() == 0 && m_current >= 1)
-            --m_current;
+        if (m_stacks[m_current].empty())
+        {
+            // Find the prev non-empty stack
+            while (m_current > 0)
+            {
+                if (!m_stacks[m_current].empty())
+                    break;
+                --m_current;
+            }
+        }
+    }
+
+    void popAt(std::size_t index)
+    {
+        // Pop an element at a specific substack
+        assert(!m_stacks[index].empty());
+        m_stacks[index].pop();
+        if (m_stacks[m_first].empty())
+        {
+            // Find the next non-empty stack
+            while (m_first != m_capacity)
+            {
+                if (!m_stacks[m_first].empty())
+                    break;
+                ++m_first;
+            }
+        }
     }
 
     T top() const
@@ -55,9 +81,15 @@ public:
         return m_stacks[m_current].top();
     }
 
+    T topAt(std::size_t index) const
+    {
+        assert(!m_stacks[index].empty());
+        return m_stacks[index].top();
+    }
+
     [[nodiscard]] bool empty() const
     {
-        return m_stacks[0].empty();
+        return m_stacks[m_first].empty();
     }
 
 };
