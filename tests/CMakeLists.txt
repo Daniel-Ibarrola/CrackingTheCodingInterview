@@ -25,6 +25,7 @@ add_executable(
         chapter_3/test_queue.cpp
         chapter_3/test_stack_min.cpp
         chapter_3/test_set_of_stacks.cpp
+        chapter_3/test_queue_via_stack.cpp
 )
 
 target_link_libraries(Google_Tests_run chapter_1)
