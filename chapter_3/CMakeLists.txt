@@ -6,6 +6,7 @@ set(HEADER_FILES
         stack_min.h
         set_of_stacks.h
         my_queue.h
+        sortstack.h
         )
 
 set(SOURCE_FILES

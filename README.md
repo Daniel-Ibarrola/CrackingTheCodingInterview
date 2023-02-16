@@ -32,3 +32,4 @@ Solutions of Cracking the Coding Interview book implemented in the C++ programmi
 - [3.2 Stack with min](chapter_3/stack_min.h)
 - [3.3 Set of stacks](chapter_3/set_of_stacks.h)
 - [3.4 Queue via stacks](chapter_3/my_queue.h)
+- [3.5 Sort stack](chapter_3/sortstack.h)
