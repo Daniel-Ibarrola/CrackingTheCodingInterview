@@ -6,23 +6,21 @@
 #include "sortstack.h"
 
 
-TEST(TestSortStack, PushAndPop)
+TEST(TestSortStack, SortingAStack)
 {
-    SortStack<int> stack;
-    stack.push(4);
-    stack.push(6);
-    ASSERT_EQ(stack.top(), 4);
+    std::vector<int> values {2, 7, 3, 10, 8};
+    std::stack<int> stack;
 
-    stack.push(3);
-    stack.push(7);
-    stack.push(5);
+    for (auto val : values)
+        stack.push(val);
 
-    std::vector<int> expected {3, 4, 5, 6, 7};
-    for (auto val : expected)
+    sort(stack);
+
+    std::vector<int> sortedValues {2, 3, 7, 8, 10};
+    for (auto val : sortedValues)
     {
         ASSERT_EQ(stack.top(), val);
         stack.pop();
     }
-
     ASSERT_TRUE(stack.empty());
 }

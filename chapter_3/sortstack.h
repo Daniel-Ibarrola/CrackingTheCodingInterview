@@ -7,54 +7,27 @@
 
 #include <stack>
 
-template <typename T>
-class SortStack
+void sort(std::stack<int>& stack)
 {
-// Stack that keeps the smallest elements at the top
-private:
-    std::stack<T> m_stack;
-
-public:
-
-    SortStack() = default;
-
-    void push(T data)
+    std::stack<int> sorted;
+    while (!stack.empty())
     {
-        // Push an element into the stack and keep it sorted
-        if (empty() || data <= top())
-            m_stack.push(data);
-        else
+        int temp {stack.top()};
+        stack.pop();
+        while (!sorted.empty() && sorted.top() > temp)
         {
-            std::stack<T> temp;
-            while(!empty() && top() < data)
-            {
-                temp.push(top());
-                m_stack.pop();
-            }
-            m_stack.push(data);
-            while (!temp.empty())
-            {
-                m_stack.push(temp.top());
-                temp.pop();
-            }
+            stack.push(sorted.top());
+            sorted.pop();
         }
-
+        sorted.push(temp);
     }
 
-    T top() const
+    while (!sorted.empty())
     {
-        return m_stack.top();
+        stack.push(sorted.top());
+        sorted.pop();
     }
+}
 
-    void pop()
-    {
-        return m_stack.pop();
-    }
-
-    [[nodiscard]] bool empty() const
-    {
-        return m_stack.empty();
-    }
-};
 
 #endif //CRACKING_SORTSTACK_H
