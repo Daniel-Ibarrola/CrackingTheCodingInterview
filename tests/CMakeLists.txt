@@ -28,9 +28,11 @@ add_executable(
         chapter_3/test_queue_via_stack.cpp
         chapter_3/test_sortstack.cpp
         chapter_3/test_animal_shelter.cpp
+        chapter_4/test_path_between.cpp
 )
 
 target_link_libraries(Google_Tests_run chapter_1)
 target_link_libraries(Google_Tests_run chapter_2)
 target_link_libraries(Google_Tests_run chapter_3)
+target_link_libraries(Google_Tests_run chapter_4)
 target_link_libraries(Google_Tests_run gtest gtest_main)
