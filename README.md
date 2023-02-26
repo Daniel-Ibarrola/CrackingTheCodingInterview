@@ -34,3 +34,7 @@ Solutions of Cracking the Coding Interview book implemented in the C++ programmi
 - [3.4 Queue via stacks](chapter_3/my_queue.h)
 - [3.5 Sort stack](chapter_3/sortstack.h)
 - [3.6](chapter_3/animal_shelter.cpp)
+
+## Chapter 4 Trees and Graphs
+- [4.1 Route between nodes](chapter_4/digraph.cpp)
+- [4.2 Minimal Tree](chapter_4/bst.cpp)

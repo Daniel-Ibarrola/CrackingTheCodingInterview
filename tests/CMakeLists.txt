@@ -29,6 +29,7 @@ add_executable(
         chapter_3/test_sortstack.cpp
         chapter_3/test_animal_shelter.cpp
         chapter_4/test_path_between.cpp
+        chapter_4/test_minimal_height_bst.cpp
 )
 
 target_link_libraries(Google_Tests_run chapter_1)
