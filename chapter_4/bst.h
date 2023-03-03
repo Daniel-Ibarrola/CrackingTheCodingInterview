@@ -8,42 +8,23 @@
 
 #include <queue>
 #include <vector>
+#include "binary_tree.h"
 
 
-struct BSTNode
+
+class BST : public AbstractBinaryTree
 {
-    int value;
-    BSTNode* left {nullptr};
-    BSTNode* right {nullptr};
-
-    explicit BSTNode(int _value) : value {_value}
-    {
-
-    }
-};
-
-
-class BST
-{
-private:
     // A binary search tree
-    BSTNode* m_root {nullptr};
-
 public:
 
     BST() = default;
 
-    explicit BST(BSTNode* root)
-        : m_root {root}
-    {
+    void insert(int data) override {}
 
-    }
-
-    [[nodiscard]] std::vector<int> levelOrderTraversal() const;
+    friend BST minimalHeightBST(const std::vector<int>& values);
 };
 
 
-BSTNode* minimalHeightBST(const std::vector<int>&values, int left, int right);
 BST minimalHeightBST(const std::vector<int>& values);
 
 #endif //CRACKING_BST_H

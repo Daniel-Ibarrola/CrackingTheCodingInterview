@@ -24,6 +24,49 @@ struct BTNode
 };
 
 
-std::vector<std::list<BTNode*>> listOfDepths(BTNode* root);
+class AbstractBinaryTree
+{
+    // Abstract base class for binary trees
+protected:
+    BTNode* m_root;
+
+public:
+
+    AbstractBinaryTree() : m_root {nullptr}
+    {
+
+    }
+
+    explicit AbstractBinaryTree(int data)
+        : m_root {new BTNode {data}}
+    {
+        // Initializes the root node
+    }
+
+    [[nodiscard]] std::vector<std::list<BTNode*>> listOfDepths() const;
+
+    virtual void insert(int data) = 0;
+    virtual ~AbstractBinaryTree() = default;
+
+    [[nodiscard]] std::vector<int> levelOrderTraversal() const;
+
+};
+
+
+class BinaryTree : public AbstractBinaryTree
+{
+public:
+
+    explicit BinaryTree(int data) : AbstractBinaryTree {data}
+    {
+
+    }
+
+    void insert(int data) override {};
+
+    BTNode* getRoot() { return m_root; }
+    static BTNode* insertLeft(BTNode* node, int data);
+    static BTNode* insertRight(BTNode* node, int data);
+};
 
 #endif //CRACKING_BINARY_TREE_H

@@ -17,18 +17,16 @@ std::vector<int> getLevelValues(const std::list<BTNode*>& level)
 
 TEST(TestListOfDepths, CompleteTree)
 {
-    auto* root = new BTNode {4};
-    auto* leftChild = new BTNode {3};
-    auto* rightChild = new BTNode {5};
-    root->left = leftChild;
-    root->right = rightChild;
+    BinaryTree tree(4);
+    BTNode* root {tree.getRoot()};
+    BTNode* leftChild {BinaryTree::insertLeft(root, 3)};
+    BTNode* rightChild {BinaryTree::insertRight(root, 5)};
+    BinaryTree::insertLeft(leftChild, 1);
+    BinaryTree::insertRight(leftChild, 2);
+    BinaryTree::insertLeft(rightChild, 6);
+    BinaryTree::insertRight(rightChild, 7);
 
-    leftChild->left = new BTNode {1};
-    leftChild->right = new BTNode {2};
-    rightChild->left = new BTNode {6};
-    rightChild->right = new BTNode {7};
-
-    std::vector<std::list<BTNode*>> result {listOfDepths(root)};
+    std::vector<std::list<BTNode*>> result {tree.listOfDepths()};
     std::vector<int> level1Expected {4};
     std::vector<int> level2Expected {3, 5};
     std::vector<int> level3Expected {1, 2, 6, 7};
@@ -41,16 +39,15 @@ TEST(TestListOfDepths, CompleteTree)
 
 
 TEST(TestListOfDepths, UncompleteTree) {
-    auto *root = new BTNode{4};
-    auto *leftChild = new BTNode{3};
-    auto *rightChild = new BTNode{5};
-    root->left = leftChild;
-    root->right = rightChild;
+    BinaryTree tree(4);
+    BTNode* root {tree.getRoot()};
+    BTNode* leftChild {BinaryTree::insertLeft(root, 3)};
+    BTNode* rightChild {BinaryTree::insertRight(root, 5)};
+    BinaryTree::insertLeft(leftChild, 1);
+    BinaryTree::insertLeft(rightChild, 6);
 
-    leftChild->left = new BTNode{1};
-    rightChild->left = new BTNode{6};
 
-    std::vector<std::list<BTNode *>> result{listOfDepths(root)};
+    std::vector<std::list<BTNode*>> result{tree.listOfDepths()};
     std::vector<int> level1Expected{4};
     std::vector<int> level2Expected{3, 5};
     std::vector<int> level3Expected{1, 6};
@@ -59,5 +56,4 @@ TEST(TestListOfDepths, UncompleteTree) {
     ASSERT_EQ(getLevelValues(result[0]), level1Expected);
     ASSERT_EQ(getLevelValues(result[1]), level2Expected);
     ASSERT_EQ(getLevelValues(result[2]), level3Expected);
-
 }
