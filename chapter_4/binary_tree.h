@@ -14,21 +14,13 @@
 struct BTNode
 {
     int data;
-    std::size_t height;
     BTNode* left {nullptr};
     BTNode* right {nullptr};
 
-    explicit BTNode(int _data) : data {_data}, height {0}
+    explicit BTNode(int _data) : data {_data}
     {
 
     }
-
-    BTNode(int _data, std::size_t _height)
-        : data {_data}, height {_height}
-    {
-
-    }
-
 };
 
 

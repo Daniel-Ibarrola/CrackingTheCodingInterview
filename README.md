@@ -37,5 +37,6 @@ Solutions of Cracking the Coding Interview book implemented in the C++ programmi
 
 ## Chapter 4 Trees and Graphs
 - [4.1 Route between nodes](chapter_4/digraph.cpp)
-- [4.2 Minimal Tree](chapter_4/bst.cpp)
-- [4.3 List of Depths](chapter_4/binary_tree.cpp)
+- [4.2 Minimal tree](chapter_4/bst.cpp)
+- [4.3 List of depths](chapter_4/binary_tree.cpp)
+- [4.4 Is tree balanced?](chapter_4/binary_tree.cpp)

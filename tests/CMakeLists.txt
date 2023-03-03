@@ -31,6 +31,7 @@ add_executable(
         chapter_4/test_path_between.cpp
         chapter_4/test_minimal_height_bst.cpp
         chapter_4/test_list_of_depths.cpp
+        chapter_4/test_is_tree_balanced.cpp
 )
 
 target_link_libraries(Google_Tests_run chapter_1)
