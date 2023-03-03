@@ -21,7 +21,6 @@ BTNode* minimalHeightBST(const std::vector<int>&values, int left, int right)
     return root;
 }
 
-
 BST minimalHeightBST(const std::vector<int>& values)
 {
     // Create a binary search tree of minimal height from a sorted
@@ -29,4 +28,26 @@ BST minimalHeightBST(const std::vector<int>& values)
     BST tree;
     tree.m_root = minimalHeightBST(values, 0, static_cast<int>(values.size() - 1));
     return tree;
+}
+
+
+BTNode* insertUtil(BTNode* root, int data)
+{
+    if (root != nullptr)
+    {
+        if (data < root->data)
+            root->left = insertUtil(root->left, data);
+        else
+            root->right = insertUtil(root->right, data);
+        return root;
+    }
+    return new BTNode {data};
+}
+
+
+void BST::insert(int data)
+{
+    // Inserts a node with the given value while keeping
+    // the binary search tree property. Insertions may make the tree unbalanced
+    m_root = insertUtil(m_root, data);
 }

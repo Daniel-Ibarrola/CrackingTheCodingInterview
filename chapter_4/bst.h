@@ -17,10 +17,7 @@ class BST : public AbstractBinaryTree
     // A binary search tree
 public:
 
-    BST() = default;
-
-    void insert(int data) override {}
-
+    void insert(int data) override;
     friend BST minimalHeightBST(const std::vector<int>& values);
 };
 

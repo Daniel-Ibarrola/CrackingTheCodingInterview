@@ -6,7 +6,9 @@
 #define CRACKING_BINARY_TREE_H
 
 
+#include <cstdlib>
 #include <queue>
+#include <limits>
 #include <list>
 #include <vector>
 
@@ -49,6 +51,7 @@ public:
     virtual ~AbstractBinaryTree() = default;
 
     [[nodiscard]] std::vector<int> levelOrderTraversal() const;
+    bool isBalanced() const;
 
 };
 
@@ -62,7 +65,7 @@ public:
 
     }
 
-    void insert(int data) override {};
+    void insert(int data) override {};  // Note that calling insert has no effect on binary tree
 
     BTNode* getRoot() { return m_root; }
     static BTNode* insertLeft(BTNode* node, int data);

@@ -33,21 +33,6 @@ std::vector<std::list<BTNode*>> AbstractBinaryTree::listOfDepths() const
     return result;
 }
 
-BTNode* BinaryTree::insertLeft(BTNode *node, int data)
-{
-    auto* newNode = new BTNode {data};
-    node->left = newNode;
-    return newNode;
-}
-
-BTNode* BinaryTree::insertRight(BTNode *node, int data)
-{
-    auto* newNode = new BTNode {data};
-    node->right = newNode;
-    return newNode;
-}
-
-
 std::vector<int> AbstractBinaryTree::levelOrderTraversal() const
 {
     // Returns a vector with the values of the nodes visited
@@ -73,4 +58,48 @@ std::vector<int> AbstractBinaryTree::levelOrderTraversal() const
     }
 
     return values;
+}
+
+const int ERROR_CODE {std::numeric_limits<int>::min()};
+
+
+int isBalancedUtil(BTNode* root)
+{
+    // Helper function for isBalanced.
+    if (root == nullptr)
+        return -1;
+
+    int heightLeft {isBalancedUtil(root->left)};
+    if (heightLeft == ERROR_CODE) return ERROR_CODE;  // propagate error
+
+    int heightRight {isBalancedUtil(root->right)};
+    if (heightRight == ERROR_CODE) return ERROR_CODE;
+
+    if (std::abs(heightRight - heightLeft) > 1)
+        return ERROR_CODE;
+
+    return std::max(heightLeft, heightRight) + 1;
+}
+
+
+bool AbstractBinaryTree::isBalanced() const
+{
+    // Returns true if the tree is balanced. That is, the height of the two subtrees of
+    // any node never differ by more than one.
+    return isBalancedUtil(m_root) != ERROR_CODE;
+}
+
+
+BTNode* BinaryTree::insertLeft(BTNode *node, int data)
+{
+    auto* newNode = new BTNode {data};
+    node->left = newNode;
+    return newNode;
+}
+
+BTNode* BinaryTree::insertRight(BTNode *node, int data)
+{
+    auto* newNode = new BTNode {data};
+    node->right = newNode;
+    return newNode;
 }
