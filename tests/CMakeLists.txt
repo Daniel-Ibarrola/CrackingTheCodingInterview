@@ -33,6 +33,7 @@ add_executable(
         chapter_4/test_list_of_depths.cpp
         chapter_4/test_is_tree_balanced.cpp
         chapter_4/test_binary_search_tree.cpp
+        chapter_4/test_validate_bst.cpp
 )
 
 target_link_libraries(Google_Tests_run chapter_1)

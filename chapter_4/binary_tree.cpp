@@ -103,3 +103,27 @@ BTNode* BinaryTree::insertRight(BTNode *node, int data)
     node->right = newNode;
     return newNode;
 }
+
+bool BinaryTree::checkBST(BTNode *root, int min, int max)
+{
+    // Helper function for checkBST
+    if (root == nullptr) return true;
+
+    bool checkLeft {checkBST(root->left, min, root->data)};
+    if (!checkLeft) return false;
+
+    bool checkRight {checkBST(root->right, root->data, max)};
+    if (!checkRight) return false;
+
+    return min <= root->data && root->data <= max;
+}
+
+bool BinaryTree::checkBST() const
+{
+    // Returns true if the tree is a binary search tree
+    return checkBST(
+            m_root,
+            std::numeric_limits<int>::min(),
+            std::numeric_limits<int>::max()
+            );
+}

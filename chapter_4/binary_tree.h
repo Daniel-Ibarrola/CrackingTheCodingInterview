@@ -51,13 +51,17 @@ public:
     virtual ~AbstractBinaryTree() = default;
 
     [[nodiscard]] std::vector<int> levelOrderTraversal() const;
-    bool isBalanced() const;
+    [[nodiscard]] bool isBalanced() const;
 
 };
 
 
 class BinaryTree : public AbstractBinaryTree
 {
+private:
+
+    static bool checkBST(BTNode* root, int min, int max);
+
 public:
 
     explicit BinaryTree(int data) : AbstractBinaryTree {data}
@@ -70,6 +74,8 @@ public:
     BTNode* getRoot() { return m_root; }
     static BTNode* insertLeft(BTNode* node, int data);
     static BTNode* insertRight(BTNode* node, int data);
+
+    [[nodiscard]] bool checkBST() const;
 };
 
 #endif //CRACKING_BINARY_TREE_H

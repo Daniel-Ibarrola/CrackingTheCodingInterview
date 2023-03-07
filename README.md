@@ -33,10 +33,11 @@ Solutions of Cracking the Coding Interview book implemented in the C++ programmi
 - [3.3 Set of stacks](chapter_3/set_of_stacks.h)
 - [3.4 Queue via stacks](chapter_3/my_queue.h)
 - [3.5 Sort stack](chapter_3/sortstack.h)
-- [3.6](chapter_3/animal_shelter.cpp)
+- [3.6 Animal Shelter](chapter_3/animal_shelter.cpp)
 
 ## Chapter 4 Trees and Graphs
 - [4.1 Route between nodes](chapter_4/digraph.cpp)
 - [4.2 Minimal tree](chapter_4/bst.cpp)
 - [4.3 List of depths](chapter_4/binary_tree.cpp)
 - [4.4 Is tree balanced?](chapter_4/binary_tree.cpp)
+- [4.5 Validate binary search tree](chapter_4/bst.cpp)
