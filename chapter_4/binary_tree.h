@@ -18,6 +18,7 @@ struct BTNode
     int data;
     BTNode* left {nullptr};
     BTNode* right {nullptr};
+    BTNode* parent {nullptr};
 
     explicit BTNode(int _data) : data {_data}
     {

@@ -31,23 +31,57 @@ BST minimalHeightBST(const std::vector<int>& values)
 }
 
 
-BTNode* insertUtil(BTNode* root, int data)
+BTNode* insertUtil(BTNode* root, BTNode* node)
 {
     if (root != nullptr)
     {
-        if (data < root->data)
-            root->left = insertUtil(root->left, data);
+        if (node->data < root->data)
+        {
+            root->left = insertUtil(root->left, node);
+            root->left->parent = root;
+        }
         else
-            root->right = insertUtil(root->right, data);
+        {
+            root->right = insertUtil(root->right, node);
+            root->right->parent = root;
+        }
         return root;
     }
-    return new BTNode {data};
+    return node;
 }
-
 
 void BST::insert(int data)
 {
     // Inserts a node with the given value while keeping
     // the binary search tree property. Insertions may make the tree unbalanced
-    m_root = insertUtil(m_root, data);
+    auto* node {new BTNode {data}};
+    m_root = insertUtil(m_root, node);
+}
+
+void BST::insert(BTNode *node)
+{
+    // Insert a new node in to the tree
+    m_root = insertUtil(m_root, node);
+}
+
+BTNode* BST::successor(BTNode *node) const
+{
+    // Returns the successor of the given node
+    if (node == nullptr)
+        return nullptr;
+
+    if (node->right != nullptr)
+    {
+        node = node->right;
+        while (node->left != nullptr)
+            node = node->left;
+        return node;
+    }
+    else
+    {
+        int data {node->data};
+        while (node->parent->data < data)
+            node = node->parent;
+        return node->parent;
+    }
 }

@@ -15,10 +15,15 @@
 class BST : public AbstractBinaryTree
 {
     // A binary search tree
+
 public:
 
+    void insert(BTNode* node);
     void insert(int data) override;
+
     friend BST minimalHeightBST(const std::vector<int>& values);
+
+    BTNode* successor(BTNode* node) const;
 };
 
 
