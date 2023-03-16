@@ -35,6 +35,8 @@ add_executable(
         chapter_4/test_binary_search_tree.cpp
         chapter_4/test_validate_bst.cpp
         chapter_4/test_successor.cpp
+        chapter_4/test_build_order.cpp
+        chapter_4/test_topological_ordering.cpp
 )
 
 target_link_libraries(Google_Tests_run chapter_1)
