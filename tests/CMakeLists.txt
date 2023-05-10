@@ -4,6 +4,7 @@ include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 
 add_executable(
         Google_Tests_run
+        arrays/test_arrays.cpp
         graphs/test_build_order.cpp
         graphs/test_path_between.cpp
         graphs/test_topological_ordering.cpp
@@ -34,6 +35,7 @@ add_executable(
         trees/test_successor.cpp
 )
 
+target_link_libraries(Google_Tests_run arrays)
 target_link_libraries(Google_Tests_run graphs)
 target_link_libraries(Google_Tests_run linked_list)
 target_link_libraries(Google_Tests_run matrix)
