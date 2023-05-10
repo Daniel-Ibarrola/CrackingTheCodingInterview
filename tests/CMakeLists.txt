@@ -4,8 +4,6 @@ include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 
 add_executable(
         Google_Tests_run
-        matrix/test_matrix.cpp
-        strings/test_strings.cpp
         linked_list/test_linked_list.cpp
         linked_list/test_double_list.cpp
         linked_list/test_remove_duplicates.cpp
@@ -16,11 +14,13 @@ add_executable(
         linked_list/test_is_palindrome.cpp
         linked_list/test_list_intersection.cpp
         linked_list/test_loop_detection.cpp
+        matrix/test_matrix.cpp
+        queue/test_queue.cpp
+        queue/test_queue_via_stack.cpp
+        strings/test_strings.cpp
         chapter_3/test_stack.cpp
-        chapter_3/test_queue.cpp
         chapter_3/test_stack_min.cpp
         chapter_3/test_set_of_stacks.cpp
-        chapter_3/test_queue_via_stack.cpp
         chapter_3/test_sortstack.cpp
         chapter_3/test_animal_shelter.cpp
         chapter_4/test_path_between.cpp
@@ -34,9 +34,10 @@ add_executable(
         chapter_4/test_topological_ordering.cpp
 )
 
-target_link_libraries(Google_Tests_run matrix)
-target_link_libraries(Google_Tests_run strings_algorithms)
 target_link_libraries(Google_Tests_run linked_list)
+target_link_libraries(Google_Tests_run matrix)
+target_link_libraries(Google_Tests_run queues)
+target_link_libraries(Google_Tests_run strings_algorithms)
 target_link_libraries(Google_Tests_run chapter_3)
 target_link_libraries(Google_Tests_run chapter_4)
 target_link_libraries(Google_Tests_run gtest gtest_main)
