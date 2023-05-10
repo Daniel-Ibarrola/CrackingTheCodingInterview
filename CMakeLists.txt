@@ -12,11 +12,11 @@ add_subdirectory(matrix)
 include_directories(queues)
 add_subdirectory(queues)
 
+include_directories(stacks)
+add_subdirectory(stacks)
+
 include_directories(strings)
 add_subdirectory(strings)
-
-include_directories(chapter_3)
-add_subdirectory(chapter_3)
 
 include_directories(chapter_4)
 add_subdirectory(chapter_4)

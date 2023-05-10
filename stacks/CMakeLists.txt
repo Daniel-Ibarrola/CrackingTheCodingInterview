@@ -1,4 +1,4 @@
-project(chapter_3)
+project(stacks)
 
 set(HEADER_FILES
         stack.h
@@ -13,4 +13,4 @@ set(SOURCE_FILES
         animal_shelter.cpp
         )
 
-add_library(chapter_3 STATIC ${SOURCE_FILES} ${HEADER_FILES})
+add_library(stacks STATIC ${SOURCE_FILES} ${HEADER_FILES})

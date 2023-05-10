@@ -18,11 +18,11 @@ add_executable(
         queue/test_queue.cpp
         queue/test_queue_via_stack.cpp
         strings/test_strings.cpp
-        chapter_3/test_stack.cpp
-        chapter_3/test_stack_min.cpp
-        chapter_3/test_set_of_stacks.cpp
-        chapter_3/test_sortstack.cpp
-        chapter_3/test_animal_shelter.cpp
+        stacks/test_stack.cpp
+        stacks/test_stack_min.cpp
+        stacks/test_set_of_stacks.cpp
+        stacks/test_sortstack.cpp
+        stacks/test_animal_shelter.cpp
         chapter_4/test_path_between.cpp
         chapter_4/test_minimal_height_bst.cpp
         chapter_4/test_list_of_depths.cpp
@@ -37,7 +37,7 @@ add_executable(
 target_link_libraries(Google_Tests_run linked_list)
 target_link_libraries(Google_Tests_run matrix)
 target_link_libraries(Google_Tests_run queues)
+target_link_libraries(Google_Tests_run stacks)
 target_link_libraries(Google_Tests_run strings_algorithms)
-target_link_libraries(Google_Tests_run chapter_3)
 target_link_libraries(Google_Tests_run chapter_4)
 target_link_libraries(Google_Tests_run gtest gtest_main)
