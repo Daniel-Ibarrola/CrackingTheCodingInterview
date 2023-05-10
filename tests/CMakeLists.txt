@@ -4,13 +4,8 @@ include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 
 add_executable(
         Google_Tests_run
-        chapter_1/test_ex_1_1.cpp
-        chapter_1/test_ex_1_2.cpp
-        chapter_1/test_ex_1_3.cpp
-        chapter_1/test_ex_1_4.cpp
-        chapter_1/test_ex_1_6.cpp
-        chapter_1/test_ex_1_8.cpp
-        chapter_1/test_rotate_matrix.cpp
+        matrix/test_matrix.cpp
+        strings/test_strings.cpp
         chapter_2/test_linked_list.cpp
         chapter_2/test_double_list.cpp
         chapter_2/test_remove_duplicates.cpp
