@@ -6,16 +6,16 @@ add_executable(
         Google_Tests_run
         matrix/test_matrix.cpp
         strings/test_strings.cpp
-        chapter_2/test_linked_list.cpp
-        chapter_2/test_double_list.cpp
-        chapter_2/test_remove_duplicates.cpp
-        chapter_2/test_kth_to_last.cpp
-        chapter_2/test_partition.cpp
-        chapter_2/test_linked_list_sum.cpp
-        chapter_2/test_list_with_tail.cpp
-        chapter_2/test_is_palindrome.cpp
-        chapter_2/test_list_intersection.cpp
-        chapter_2/test_loop_detection.cpp
+        linked_list/test_linked_list.cpp
+        linked_list/test_double_list.cpp
+        linked_list/test_remove_duplicates.cpp
+        linked_list/test_kth_to_last.cpp
+        linked_list/test_partition.cpp
+        linked_list/test_linked_list_sum.cpp
+        linked_list/test_list_with_tail.cpp
+        linked_list/test_is_palindrome.cpp
+        linked_list/test_list_intersection.cpp
+        linked_list/test_loop_detection.cpp
         chapter_3/test_stack.cpp
         chapter_3/test_queue.cpp
         chapter_3/test_stack_min.cpp
@@ -36,7 +36,7 @@ add_executable(
 
 target_link_libraries(Google_Tests_run matrix)
 target_link_libraries(Google_Tests_run strings_algorithms)
-target_link_libraries(Google_Tests_run chapter_2)
+target_link_libraries(Google_Tests_run linked_list)
 target_link_libraries(Google_Tests_run chapter_3)
 target_link_libraries(Google_Tests_run chapter_4)
 target_link_libraries(Google_Tests_run gtest gtest_main)

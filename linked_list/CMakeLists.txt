@@ -1,4 +1,4 @@
-project(chapter_2)
+project(linked_list)
 
 set(HEADER_FILES
         linked_list.h
@@ -18,4 +18,4 @@ set(SOURCE_FILES
         loop_detection.cpp
         )
 
-add_library(chapter_2 STATIC ${SOURCE_FILES} ${HEADER_FILES})
+add_library(linked_list STATIC ${SOURCE_FILES} ${HEADER_FILES})

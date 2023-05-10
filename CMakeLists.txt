@@ -9,8 +9,8 @@ add_subdirectory(matrix)
 include_directories(strings)
 add_subdirectory(strings)
 
-include_directories(chapter_2)
-add_subdirectory(chapter_2)
+include_directories(linked_list)
+add_subdirectory(linked_list)
 
 include_directories(chapter_3)
 add_subdirectory(chapter_3)
