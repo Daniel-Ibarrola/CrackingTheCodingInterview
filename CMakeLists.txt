@@ -21,7 +21,7 @@ add_subdirectory(stacks)
 include_directories(strings)
 add_subdirectory(strings)
 
-include_directories(chapter_4)
-add_subdirectory(chapter_4)
+include_directories(trees)
+add_subdirectory(trees)
 
 add_subdirectory(tests)

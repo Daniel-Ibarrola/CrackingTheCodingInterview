@@ -1,4 +1,4 @@
-project(chapter_4)
+project(trees)
 
 set(HEADER_FILES
         bst.h
@@ -10,4 +10,4 @@ set(SOURCE_FILES
         binary_tree.cpp
         )
 
-add_library(chapter_4 STATIC ${SOURCE_FILES} ${HEADER_FILES})
+add_library(trees STATIC ${SOURCE_FILES} ${HEADER_FILES})

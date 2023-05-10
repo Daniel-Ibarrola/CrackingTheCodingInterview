@@ -26,12 +26,12 @@ add_executable(
         stacks/test_set_of_stacks.cpp
         stacks/test_sortstack.cpp
         stacks/test_animal_shelter.cpp
-        chapter_4/test_minimal_height_bst.cpp
-        chapter_4/test_list_of_depths.cpp
-        chapter_4/test_is_tree_balanced.cpp
-        chapter_4/test_binary_search_tree.cpp
-        chapter_4/test_validate_bst.cpp
-        chapter_4/test_successor.cpp
+        trees/test_minimal_height_bst.cpp
+        trees/test_list_of_depths.cpp
+        trees/test_is_tree_balanced.cpp
+        trees/test_binary_search_tree.cpp
+        trees/test_validate_bst.cpp
+        trees/test_successor.cpp
 )
 
 target_link_libraries(Google_Tests_run graphs)
@@ -40,5 +40,5 @@ target_link_libraries(Google_Tests_run matrix)
 target_link_libraries(Google_Tests_run queues)
 target_link_libraries(Google_Tests_run stacks)
 target_link_libraries(Google_Tests_run strings_algorithms)
-target_link_libraries(Google_Tests_run chapter_4)
+target_link_libraries(Google_Tests_run trees)
 target_link_libraries(Google_Tests_run gtest gtest_main)
