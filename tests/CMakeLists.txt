@@ -4,6 +4,9 @@ include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 
 add_executable(
         Google_Tests_run
+        graphs/test_build_order.cpp
+        graphs/test_path_between.cpp
+        graphs/test_topological_ordering.cpp
         linked_list/test_linked_list.cpp
         linked_list/test_double_list.cpp
         linked_list/test_remove_duplicates.cpp
@@ -23,17 +26,15 @@ add_executable(
         stacks/test_set_of_stacks.cpp
         stacks/test_sortstack.cpp
         stacks/test_animal_shelter.cpp
-        chapter_4/test_path_between.cpp
         chapter_4/test_minimal_height_bst.cpp
         chapter_4/test_list_of_depths.cpp
         chapter_4/test_is_tree_balanced.cpp
         chapter_4/test_binary_search_tree.cpp
         chapter_4/test_validate_bst.cpp
         chapter_4/test_successor.cpp
-        chapter_4/test_build_order.cpp
-        chapter_4/test_topological_ordering.cpp
 )
 
+target_link_libraries(Google_Tests_run graphs)
 target_link_libraries(Google_Tests_run linked_list)
 target_link_libraries(Google_Tests_run matrix)
 target_link_libraries(Google_Tests_run queues)

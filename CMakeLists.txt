@@ -3,6 +3,9 @@ project(Cracking)
 
 set(CMAKE_CXX_STANDARD 17)
 
+include_directories(graphs)
+add_subdirectory(graphs)
+
 include_directories(linked_list)
 add_subdirectory(linked_list)
 

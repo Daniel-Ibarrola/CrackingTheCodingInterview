@@ -36,10 +36,10 @@ Solutions of Cracking the Coding Interview book implemented in the C++ programmi
 - [3.6 Animal Shelter](chapter_3/animal_shelter.cpp)
 
 ## Chapter 4 Trees and Graphs
-- [4.1 Route between nodes](chapter_4/digraph.cpp)
+- [4.1 Route between nodes](graphs/digraph.cpp)
 - [4.2 Minimal tree](chapter_4/bst.cpp)
 - [4.3 List of depths](chapter_4/binary_tree.cpp)
 - [4.4 Is tree balanced?](chapter_4/binary_tree.cpp)
 - [4.5 Validate binary search tree](chapter_4/bst.cpp)
 - [4.6 Successor](chapter_4/bst.cpp)
-- [4.7 Build order](chapter_4/digraph.cpp)
+- [4.7 Build order](graphs/digraph.cpp)
