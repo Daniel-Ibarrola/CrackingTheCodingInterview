@@ -34,6 +34,7 @@ add_executable(
         chapter_4/test_topological_ordering.cpp
 )
 
+target_link_libraries(Google_Tests_run matrix)
 target_link_libraries(Google_Tests_run chapter_1)
 target_link_libraries(Google_Tests_run chapter_2)
 target_link_libraries(Google_Tests_run chapter_3)

@@ -3,6 +3,9 @@ project(Cracking)
 
 set(CMAKE_CXX_STANDARD 17)
 
+include_directories(matrix)
+add_subdirectory(matrix)
+
 include_directories(chapter_1)
 add_subdirectory(chapter_1)
 

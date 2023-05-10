@@ -3,8 +3,7 @@
 //
 
 #include "gtest/gtest.h"
-#include "rotate_matrix.h"
-#include "ex_1_8.h"
+#include "matrix.h"
 
 
 TEST(TestTranspose, Matrix3X3)
