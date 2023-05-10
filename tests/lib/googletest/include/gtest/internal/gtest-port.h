@@ -369,7 +369,7 @@ typedef struct _RTL_CRITICAL_SECTION GTEST_CRITICAL_SECTION;
 // This assumes that non-Windows OSes provide unistd.h. For OSes where this
 // is not the case, we need to include headers that provide the functions
 // mentioned above.
-#include <strings.h>
+#include <strings_algo.h>
 #include <unistd.h>
 #endif  // GTEST_OS_WINDOWS
 

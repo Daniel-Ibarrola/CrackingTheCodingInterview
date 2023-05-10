@@ -3,11 +3,8 @@
 //
 
 #include "gtest/gtest.h"
-#include "ex_1_1.h"
-#include "ex_1_2.h"
-#include "ex_1_3.h"
-#include "ex_1_4.h"
-#include "ex_1_6.h"
+#include "strings_algo.h"
+
 
 
 TEST(StringHasUniqueCharacters, StringWithDifferentCharacters)

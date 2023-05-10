@@ -35,7 +35,7 @@ add_executable(
 )
 
 target_link_libraries(Google_Tests_run matrix)
-target_link_libraries(Google_Tests_run chapter_1)
+target_link_libraries(Google_Tests_run strings_algorithms)
 target_link_libraries(Google_Tests_run chapter_2)
 target_link_libraries(Google_Tests_run chapter_3)
 target_link_libraries(Google_Tests_run chapter_4)
