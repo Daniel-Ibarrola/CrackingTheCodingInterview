@@ -46,3 +46,17 @@ TEST(TestIncrementInteger, All9s)
     incrementNumber(number);
     ASSERT_EQ(number, expected);
 }
+
+
+TEST(TeststockMaxProfit, EmptyArray)
+{
+    std::vector<int> prices;
+    ASSERT_EQ(stockMaxProfit(prices), 0);
+}
+
+
+TEST(TeststockMaxProfit, ComputesCorrectProfit)
+{
+    std::vector<int> prices {310, 315, 275, 295, 260, 270, 290, 230, 255, 260};
+    ASSERT_EQ(stockMaxProfit(prices), 30);
+}
