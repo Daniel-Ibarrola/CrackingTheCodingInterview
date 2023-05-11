@@ -72,14 +72,12 @@ int stockMaxProfit(const std::vector<int>& prices)
     if (prices.empty())
         return 0;
 
+    int currentMin {prices[0]};
     int maxProfit {std::numeric_limits<int>::min()};
     for (int ii {0}; ii < prices.size() - 1; ++ii)
     {
-        for (int jj {ii + 1}; jj < prices.size(); ++jj)
-            maxProfit = std::max(
-                    prices[jj] - prices[ii], maxProfit
-                    );
+        currentMin = std::min(prices[ii], currentMin);
+        maxProfit = std::max(prices[ii] - currentMin, maxProfit);
     }
-
     return maxProfit;
 }
