@@ -77,3 +77,58 @@ void fillWithZeros(matrix& mat)
     }
 
 }
+
+bool invalidBoardValue(const std::unordered_set<int>& set, int value)
+{
+    return set.count(value) || (value < 0 || value > 9);
+}
+
+
+bool checkSudokuBoard(const std::array<std::array<int, 9>, 9>& board)
+{
+    std::unordered_set<int> set;
+
+    // Check rows
+    for (auto ii {0}; ii < board.size(); ++ii)
+    {
+        for (auto jj {0}; jj < board[ii].size(); ++jj)
+        {
+            if (invalidBoardValue(set, board[ii][jj]))
+                return false;
+            set.insert(board[ii][jj]);
+        }
+        set.clear();
+    }
+
+    // Check columns
+    for (auto ii {0}; ii < board.size(); ++ii)
+    {
+        for (auto jj {0}; jj < board[ii].size(); ++jj)
+        {
+            if (invalidBoardValue(set, board[jj][ii]))
+                return false;
+            set.insert(board[jj][ii]);
+        }
+        set.clear();
+    }
+
+    // Check 3x3 sub-grids
+    for (auto row_start {0}; row_start < board.size(); row_start += 3)
+    {
+        for (auto col_start {0}; col_start < board[0].size(); col_start += 3)
+        {
+            for (auto ii {row_start}; ii < row_start + 3; ++ii)
+            {
+                for (auto jj {col_start}; jj < col_start + 3; ++jj)
+                {
+                    if (invalidBoardValue(set, board[ii][jj]))
+                        return false;
+                    set.insert(board[ii][jj]);
+                }
+            }
+            set.clear();
+        }
+    }
+
+    return true;
+}
