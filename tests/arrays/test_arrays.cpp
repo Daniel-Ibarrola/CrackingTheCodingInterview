@@ -21,3 +21,28 @@ TEST(TestDutchFlagPartition, GroupsElementsInThreeGroups)
     dutchFlagPartition(array, 2);
     ASSERT_EQ(array, expected);
 }
+
+
+TEST(TestIncrementInteger, LastDigitIsNot9)
+{
+    std::vector<int> number {1, 4, 5};
+    std::vector<int> expected {1, 4, 6};
+    incrementNumber(number);
+    ASSERT_EQ(number, expected);
+}
+
+TEST(TestIncrementInteger, LastDigitIs9)
+{
+    std::vector<int> number {1, 4, 9};
+    std::vector<int> expected {1, 5, 0};
+    incrementNumber(number);
+    ASSERT_EQ(number, expected);
+}
+
+TEST(TestIncrementInteger, All9s)
+{
+    std::vector<int> number {9, 9, 9};
+    std::vector<int> expected {1, 0, 0, 0};
+    incrementNumber(number);
+    ASSERT_EQ(number, expected);
+}

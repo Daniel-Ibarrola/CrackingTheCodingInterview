@@ -24,7 +24,7 @@ void evenOdd(std::vector<int>& array)
 
 void dutchFlagPartition(std::vector<int>& array, std::size_t pivotInd)
 {
-    // Arranges the element of the gicen array so taht all elements less than
+    // Arranges the element of the given array so that all elements less than
     // array[pivotInd] appear first, followed by equal elements and then greater elements
     int pivot {array[pivotInd]};
     std::size_t smaller {0};
@@ -46,4 +46,22 @@ void dutchFlagPartition(std::vector<int>& array, std::size_t pivotInd)
             --larger;
         }
     }
+}
+
+
+void incrementNumber(std::vector<int>& digits)
+{
+    // Given an array of digits encoding a decimal number D, modifies it to
+    // represent D + 1
+    for (int ii {static_cast<int>(digits.size()) - 1}; ii >= 0; --ii)
+    {
+        if (digits[ii] < 9)
+        {
+            ++digits[ii];
+            break;
+        }
+        digits[ii] = 0;
+    }
+    if (digits[0] == 0)
+        digits.insert(digits.begin(), 1);
 }
