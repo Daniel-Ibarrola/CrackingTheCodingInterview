@@ -9,4 +9,6 @@
 
 void evenOdd(std::vector<int>& array);
 
+void dutchFlagPartition(std::vector<int>& array, std::size_t pivotInd);
+
 #endif //CRACKING_ARRAYS_H

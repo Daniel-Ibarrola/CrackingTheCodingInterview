@@ -12,3 +12,12 @@ TEST(TestsEvenOdd, SortsValuesCorrectly)
     evenOdd(array);
     ASSERT_EQ(array, expected);
 }
+
+
+TEST(TestDutchFlagPartition, GroupsElementsInThreeGroups)
+{
+    std::vector<int> array {1, 1, 2, 3, 0, 1, 2};
+    std::vector<int> expected {1, 1, 0, 1, 2, 2, 3};
+    dutchFlagPartition(array, 2);
+    ASSERT_EQ(array, expected);
+}
