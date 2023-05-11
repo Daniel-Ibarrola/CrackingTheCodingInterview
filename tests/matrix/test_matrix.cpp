@@ -8,12 +8,12 @@
 
 TEST(TestTranspose, Matrix3X3)
 {
-    matrix mat {
+    Matrix mat {
             {1, 2, 3},
             {4, 5, 6},
             {7, 8, 9}
     };
-    matrix transpose {
+    Matrix transpose {
             {1, 4, 7},
             {2, 5, 8},
             {3, 6, 9},
@@ -25,13 +25,13 @@ TEST(TestTranspose, Matrix3X3)
 
 TEST(TestTranspose, Matrix4X4)
 {
-    matrix mat {
+    Matrix mat {
             {1, 2, 3, 4},
             {5, 6, 7, 8},
             {9, 10, 11, 12},
             {13, 14, 15, 16},
     };
-    matrix transpose {
+    Matrix transpose {
             {1, 5 ,9 , 13},
             {2, 6, 10, 14},
             {3, 7, 11 ,15},
@@ -44,12 +44,12 @@ TEST(TestTranspose, Matrix4X4)
 
 TEST(TestRotateMatrixInplace, Matrix3X3)
 {
-    matrix mat {
+    Matrix mat {
             {1, 2, 3},
             {4, 5, 6},
             {7, 8, 9}
     };
-    matrix expected {
+    Matrix expected {
             {3, 6, 9},
             {2, 5, 8},
             {1, 4, 7},
@@ -61,13 +61,13 @@ TEST(TestRotateMatrixInplace, Matrix3X3)
 
 TEST(TestRotateMatrixInplace, Matrix4X4)
 {
-    matrix mat {
+    Matrix mat {
             {1, 2, 3, 4},
             {5, 6, 7, 8},
             {9, 10, 11, 12},
             {13, 14, 15, 16},
     };
-    matrix expected {
+    Matrix expected {
             {4, 8, 12, 16},
             {3, 7, 11, 15},
             {2, 6, 10, 14},
@@ -79,12 +79,12 @@ TEST(TestRotateMatrixInplace, Matrix4X4)
 
 TEST(TestFillWithZeros, Matrix1)
 {
-    matrix mat {
+    Matrix mat {
             {1, 2, 3},
             {4, 0, 6},
             {7, 8, 9},
     };
-    matrix expected {
+    Matrix expected {
             {1, 0, 3},
             {0, 0, 0},
             {7, 0, 9},
@@ -96,11 +96,11 @@ TEST(TestFillWithZeros, Matrix1)
 
 TEST(TestFillWithZeros, Matrix2)
 {
-    matrix mat {
+    Matrix mat {
             {1, 2, 3, 0},
             {4, 5, 6, 7},
     };
-    matrix expected {
+    Matrix expected {
             {0, 0, 0, 0},
             {4, 5, 6, 0},
     };
@@ -111,12 +111,12 @@ TEST(TestFillWithZeros, Matrix2)
 
 TEST(TestFillWithZeros, MultipleZeros)
 {
-    matrix mat {
+    Matrix mat {
             {1, 2, 3},
             {4, 5, 6},
             {0, 7, 0},
     };
-    matrix expected {
+    Matrix expected {
             {0, 2, 0},
             {0, 5, 0},
             {0, 0, 0},
@@ -208,4 +208,133 @@ TEST(TestCheckSudoku, InvalidBoardWithNubersOutOfRange)
             {3, 4, 5, 2, 8, 6, 1, 7, 9},
     }};
     ASSERT_FALSE(checkSudokuBoard(board));
+}
+
+Matrix createMatrix(std::size_t numRows, std::size_t numColumns)
+{
+    Matrix matrix(numRows, std::vector<int>(numColumns));
+    int count {1};
+
+    for (auto ii {0}; ii < numRows; ++ii)
+    {
+        for (auto jj {0}; jj < numColumns; ++jj)
+        {
+            matrix[ii][jj] = count;
+            ++count;
+        }
+    }
+    return matrix;
+}
+
+
+TEST(SpiralOrder, SingleRow)
+{
+    Matrix matrix {{1, 2, 3}};
+    std::vector<int> expected {1, 2, 3};
+    ASSERT_EQ(spiralOrder(matrix), expected);
+}
+
+
+TEST(SpiralOrder, SingleColumn)
+{
+    Matrix matrix {{1}, {2}, {3}};
+    std::vector<int> expected {1, 2, 3};
+    ASSERT_EQ(spiralOrder(matrix), expected);
+}
+
+
+TEST(SpiralOrder, Matrix3X3)
+{
+    Matrix matrix {createMatrix(3, 3)};
+    std::vector<int> expected {1,2,3,6,9,8,7,4,5};
+    ASSERT_EQ(spiralOrder(matrix), expected);
+}
+
+
+TEST(SpiralOrder, Matrix3X4)
+{
+    Matrix matrix {createMatrix(3, 4)};
+    std::vector<int> expected {1,2,3,4,8,12,11,10,9,5,6,7};
+    ASSERT_EQ(spiralOrder(matrix), expected);
+}
+
+
+TEST(SpiralOrder, Matrix4X5)
+{
+    Matrix matrix {createMatrix(4, 5)};
+    std::vector<int> expected {1,2,3,4,5,10,15,20,19,18,17,16,11,6,7,8,9,14,13,12};
+    ASSERT_EQ(spiralOrder(matrix), expected);
+}
+
+
+TEST(CreateSpiralMatrix, SingleElement)
+{
+    Matrix expected {{1}};
+    ASSERT_EQ(createSpiralMatrix(1), expected);
+}
+
+
+TEST(CreateSpiralMatrix, Matrix2X2)
+{
+    Matrix expected {{1, 2}, {4, 3}};
+    ASSERT_EQ(createSpiralMatrix(2), expected);
+}
+
+
+TEST(CreateSpiralMatrix, Matrix3X3)
+{
+    Matrix expected {{1, 2, 3}, {8, 9, 4}, {7, 6, 5}};
+    ASSERT_EQ(createSpiralMatrix(3), expected);
+}
+
+
+TEST(CreateSpiralMatrix, Matrix4X4)
+{
+    Matrix expected {
+            {1, 2, 3, 4},
+            {12, 13, 14, 5},
+            {11, 16, 15, 6},
+            {10, 9, 8, 7}
+    };
+    ASSERT_EQ(createSpiralMatrix(4), expected);
+}
+
+
+TEST(DiagonalOrder, SingleRow)
+{
+    Matrix matrix {{1, 2, 3}};
+    std::vector<int> expected {1, 2, 3};
+    ASSERT_EQ(diagonalOrder(matrix), expected);
+}
+
+
+TEST(DiagonalOrder, SingleColumn)
+{
+    Matrix matrix {{1}, {2}, {3}};
+    std::vector<int> expected {1, 2, 3};
+    ASSERT_EQ(diagonalOrder(matrix), expected);
+}
+
+
+TEST(DiagonalOrder, Matrix2X2)
+{
+    Matrix matrix {createMatrix(2, 2)};
+    std::vector<int> expected {1,2,3,4};
+    ASSERT_EQ(diagonalOrder(matrix), expected);
+}
+
+
+TEST(DiagonalOrder, Matrix3X3)
+{
+    Matrix matrix {createMatrix(3, 3)};
+    std::vector<int> expected {1,2,4,7,5,3,6,8,9};
+    ASSERT_EQ(diagonalOrder(matrix), expected);
+}
+
+
+TEST(DiagonalOrder, Matrix4X4)
+{
+    Matrix matrix {createMatrix(4, 4)};
+    std::vector<int> expected {1,2,5,9,6,3,4,7,10,13,14,11,8,12,15,16};
+    ASSERT_EQ(diagonalOrder(matrix), expected);
 }
