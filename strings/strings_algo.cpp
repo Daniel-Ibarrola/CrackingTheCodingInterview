@@ -133,3 +133,35 @@ std::string compress(const std::string& str)
 
     return compressed.size() < str.size() ? compressed : str;
 }
+
+int stringToInt(const std::string& str)
+{
+    // Takes a string and returns an integer
+    int result {0};
+    std::size_t start {0};
+    if (str[0] == '-')
+        start = 1;
+
+    for (auto ii {start}; ii < str.size(); ++ii)
+        result = result*10 + (str[ii] - '0');
+
+    return start == 0 ? result : -result;
+}
+
+std::string intToString(int number)
+{
+    // Takes an integer and returns a string
+    std::string reverse;
+
+    int remaining {abs(number)};
+    while (remaining > 0)
+    {
+        reverse +=  remaining % 10 + '0';
+        remaining /= 10;
+    }
+    if (number < 0)
+        reverse += "-";
+
+    std::reverse(reverse.begin(), reverse.end());
+    return reverse;
+}

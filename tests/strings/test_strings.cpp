@@ -160,3 +160,30 @@ TEST(TestStringCompression, UncompressableString2)
     std::string str {"aa"};
     ASSERT_EQ(compress(str), str);
 }
+
+
+TEST(StringToInt, PositiveInteger)
+{
+    std::string number {"123"};
+    ASSERT_EQ(stringToInt(number), 123);
+}
+
+
+TEST(StringToInt, NegativeInteger)
+{
+    std::string number {"-123"};
+    ASSERT_EQ(stringToInt(number), -123);
+}
+
+
+TEST(IntToString, PositiveNumber)
+{
+    int number {123};
+    ASSERT_EQ(intToString(number), "123");
+}
+
+TEST(IntToString, NegativeNumber)
+{
+    int number {-123};
+    ASSERT_EQ(intToString(number), "-123");
+}

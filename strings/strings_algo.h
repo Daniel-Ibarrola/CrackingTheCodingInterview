@@ -5,6 +5,7 @@
 #ifndef CRACKING_STRINGS_ALGO_H
 #define CRACKING_STRINGS_ALGO_H
 
+#include <algorithm>
 #include <array>
 #include <string>
 #include <stack>
@@ -18,5 +19,9 @@ void URLify(std::string& str, std::size_t length);
 bool isPalindromePermutation(const std::string& str);
 
 std::string compress(const std::string& str);
+
+int stringToInt(const std::string& str);
+
+std::string intToString(int number);
 
 #endif //CRACKING_STRINGS_ALGO_H
