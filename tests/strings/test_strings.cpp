@@ -204,7 +204,17 @@ TEST(BaseConversion, Base10To2)
     ASSERT_EQ(convertBase(number, 10, 2), "1110");
 }
 
-TEST(ConvertToBase10, ComputesCorrectValue)
+
+TEST(BaseConversion, NegativeNumber)
+{
+    std::string number {"-14"};
+    ASSERT_EQ(convertBase(number, 10, 2), "-1110");
+
+    number = "-615";
+    ASSERT_EQ(convertBase(number, 7, 13), "-1A7");
+}
+
+TEST(ConvertToBase10, PositiveNumber)
 {
     ASSERT_EQ(convertToBase10("1110", 2), 14);
     ASSERT_EQ(convertToBase10("615", 7), 306);
@@ -212,10 +222,27 @@ TEST(ConvertToBase10, ComputesCorrectValue)
     ASSERT_EQ(convertToBase10("1A7", 13), 306);
 }
 
-TEST(ConvertFromBase10, ComputesCorrectValue)
+TEST(ConvertToBase10, NegativeNumber)
+{
+    ASSERT_EQ(convertToBase10("-1110", 2), -14);
+    ASSERT_EQ(convertToBase10("-615", 7), -306);
+    ASSERT_EQ(convertToBase10("-205", 10), -205);
+    ASSERT_EQ(convertToBase10("-1A7", 13), -306);
+}
+
+
+TEST(ConvertFromBase10, PositiveNumber)
 {
     ASSERT_EQ(convertFromBase10(14, 2), "1110");
     ASSERT_EQ(convertFromBase10(306, 7), "615");
     ASSERT_EQ(convertFromBase10(205, 10), "205");
     ASSERT_EQ(convertFromBase10(306, 13), "1A7");
+}
+
+TEST(ConvertFromBase10, NegativeNumber)
+{
+    ASSERT_EQ(convertFromBase10(-14, 2), "-1110");
+    ASSERT_EQ(convertFromBase10(-306, 7), "-615");
+    ASSERT_EQ(convertFromBase10(-205, 10), "-205");
+    ASSERT_EQ(convertFromBase10(-306, 13), "-1A7");
 }
