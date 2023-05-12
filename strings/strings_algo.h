@@ -25,6 +25,10 @@ int stringToInt(const std::string& str);
 
 std::string intToString(int number);
 
+int convertToBase10(const std::string& number, int base);
+
+std::string convertFromBase10(int number, int base);
+
 std::string convertBase(const std::string& number, int from, int to);
 
 #endif //CRACKING_STRINGS_ALGO_H

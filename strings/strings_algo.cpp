@@ -169,41 +169,41 @@ std::string intToString(int number)
 }
 
 
-int convertToBase10(const std::string& number)
+const std::array<char, 16> NUMBER_CHAR = {
+        '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+        'A', 'B', 'C', 'D', 'E', 'F'
+};
+
+int convertToBase10(const std::string& number, int base)
 {
-    return -1;
+    int base10 {0};
+    int exponent {static_cast<int>(number.size()) - 1};
+    for (auto ii {0}; ii < number.size(); ++ii)
+    {
+        int digit {number[ii] - '0'};
+        base10 += digit * static_cast<int>(std::pow(base, exponent));
+        --exponent;
+    }
+
+    return base10;
 }
 
 std::string convertFromBase10(int number, int base)
 {
-    return "";
+    std::string result;
+    while (number)
+    {
+        result += number % base + '0';
+        number /= base;
+    }
+    std::reverse(result.begin(), result.end());
+    return result;
 }
 
 
 std::string convertBase(const std::string& number, int from, int to)
 {
     // Convert the given number from base "from" to base "to"
-
-    // Stores numbers for bigger bases
-    std::array<char, 6> numbers {'A', 'B', 'C', 'D', 'E', 'F'};
-
-    // Convert to base 10
-    int base10 {0};
-    int exponent {static_cast<int>(number.size()) - 1};
-    for (auto ii {0}; ii < number.size(); ++ii)
-    {
-        int digit {number[ii] - '0'};
-        base10 += digit * static_cast<int>(std::pow(from, exponent));
-        --exponent;
-    }
-
-    // Convert from base 10 to desired base
-    std::string result;
-    while (base10)
-    {
-        result += std::to_string(base10 % to + '0');
-        base10 /= to;
-    }
-    std::reverse(result.begin(), result.end());
-    return result;
+    int base10 {convertToBase10(number, from)};
+    return convertFromBase10(base10, to);
 }
