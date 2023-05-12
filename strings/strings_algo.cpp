@@ -169,11 +169,6 @@ std::string intToString(int number)
 }
 
 
-const std::array<char, 16> NUMBER_CHAR = {
-        '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
-        'A', 'B', 'C', 'D', 'E', 'F'
-};
-
 int convertToBase10(const std::string& number, int base)
 {
     int base10 {0};
@@ -181,6 +176,8 @@ int convertToBase10(const std::string& number, int base)
     for (auto ii {0}; ii < number.size(); ++ii)
     {
         int digit {number[ii] - '0'};
+        if (digit > 9)
+            digit = number[ii] - 'A' + 10;
         base10 += digit * static_cast<int>(std::pow(base, exponent));
         --exponent;
     }
@@ -193,7 +190,11 @@ std::string convertFromBase10(int number, int base)
     std::string result;
     while (number)
     {
-        result += number % base + '0';
+        int remainder {number % base};
+        if (remainder <= 9)
+            result += remainder + '0';
+        else
+            result += remainder % 10 + 'A';
         number /= base;
     }
     std::reverse(result.begin(), result.end());
@@ -204,6 +205,9 @@ std::string convertFromBase10(int number, int base)
 std::string convertBase(const std::string& number, int from, int to)
 {
     // Convert the given number from base "from" to base "to"
+    if (from == to)
+        return number;
+
     int base10 {convertToBase10(number, from)};
     return convertFromBase10(base10, to);
 }
