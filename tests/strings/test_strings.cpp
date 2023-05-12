@@ -168,13 +168,11 @@ TEST(StringToInt, PositiveInteger)
     ASSERT_EQ(stringToInt(number), 123);
 }
 
-
 TEST(StringToInt, NegativeInteger)
 {
     std::string number {"-123"};
     ASSERT_EQ(stringToInt(number), -123);
 }
-
 
 TEST(IntToString, PositiveNumber)
 {
@@ -186,4 +184,22 @@ TEST(IntToString, NegativeNumber)
 {
     int number {-123};
     ASSERT_EQ(intToString(number), "-123");
+}
+
+TEST(BaseConversion, Base7To13)
+{
+    std::string number {"615"};
+    ASSERT_EQ(convertBase(number, 7, 13), "1A7");
+}
+
+TEST(BaseConversion, Base2To10)
+{
+    std::string number {"1110"};
+    ASSERT_EQ(convertBase(number, 2, 10), "14");
+}
+
+TEST(BaseConversion, Base10To2)
+{
+    std::string number {"14"};
+    ASSERT_EQ(convertBase(number, 10, 2), "1110");
 }

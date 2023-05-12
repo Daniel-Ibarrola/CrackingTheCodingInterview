@@ -7,6 +7,7 @@
 
 #include <algorithm>
 #include <array>
+#include <cmath>
 #include <string>
 #include <stack>
 
@@ -23,5 +24,7 @@ std::string compress(const std::string& str);
 int stringToInt(const std::string& str);
 
 std::string intToString(int number);
+
+std::string convertBase(const std::string& number, int from, int to);
 
 #endif //CRACKING_STRINGS_ALGO_H

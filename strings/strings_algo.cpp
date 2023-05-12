@@ -134,6 +134,7 @@ std::string compress(const std::string& str)
     return compressed.size() < str.size() ? compressed : str;
 }
 
+
 int stringToInt(const std::string& str)
 {
     // Takes a string and returns an integer
@@ -147,6 +148,7 @@ int stringToInt(const std::string& str)
 
     return start == 0 ? result : -result;
 }
+
 
 std::string intToString(int number)
 {
@@ -164,4 +166,44 @@ std::string intToString(int number)
 
     std::reverse(reverse.begin(), reverse.end());
     return reverse;
+}
+
+
+int convertToBase10(const std::string& number)
+{
+    return -1;
+}
+
+std::string convertFromBase10(int number, int base)
+{
+    return "";
+}
+
+
+std::string convertBase(const std::string& number, int from, int to)
+{
+    // Convert the given number from base "from" to base "to"
+
+    // Stores numbers for bigger bases
+    std::array<char, 6> numbers {'A', 'B', 'C', 'D', 'E', 'F'};
+
+    // Convert to base 10
+    int base10 {0};
+    int exponent {static_cast<int>(number.size()) - 1};
+    for (auto ii {0}; ii < number.size(); ++ii)
+    {
+        int digit {number[ii] - '0'};
+        base10 += digit * static_cast<int>(std::pow(from, exponent));
+        --exponent;
+    }
+
+    // Convert from base 10 to desired base
+    std::string result;
+    while (base10)
+    {
+        result += std::to_string(base10 % to + '0');
+        base10 /= to;
+    }
+    std::reverse(result.begin(), result.end());
+    return result;
 }
